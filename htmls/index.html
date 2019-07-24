@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ERS Login Page</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="css\styles.css">
+        
+        <script></script>
+        <style>
+        </style>
+    </head>
+    <body>
+        <div class="containers" id="mainContainer">
+            <div class="headerDivs" id="indexHeaderDiv">
+                <header class="headers" id="indexHeader">
+                    <h1>ERS Login Page
+                        <span class="logins" id="ers_login"><a href="user.html">Login</a></span>
+                    </h1>                    
+                </header>
+            </div>
+            <div class="mainContentDivs" id="indexContentDiv">
+                <div class="mainContent" id="indexMainContent">
+                    <p class="directions" id="credentialDirection">Please login:</p>
+                    <!--<a href="user.html">Login</a> -->
+                    <label class="labels" id="forlabel4username" for="usernameInput">Enter Your Username:</label>
+                        <input class="inputs" id="usernameInput" name="usernameInput"
+                        size="40" value="" type="text" placeholder="Username" /><br/>
+                    <label class="labels" id="forlabel4passwordInput" for="passwordInput">
+                        Enter Your Password:</label>
+                        <input class="inputs" id="passwordInput" name="passwordInput" 
+                        size="40" value="" type="password" placeholder="Password"/><br/>
+                    <button type="submit" class="submits" id="loginBtn" name="loginBtn" >
+                        <a href="welcomePage.html">Submit Credentials</a>
+                    </button>
+                    <p class="incorrects" id="wrongLogin">Credentials incorrect!  Try again.</p>
+                </div> 
+            </div>
+        </div>
+    </body>
+</html>

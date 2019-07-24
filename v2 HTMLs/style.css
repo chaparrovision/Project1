@@ -1,0 +1,119 @@
+:body {
+    --header-height: 40px;
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+header {
+    background: black;
+    text-align: center;
+    padding: 10px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 2px;
+    height: var(--header-height);
+}
+header > h1 {
+    margin: 0;
+}
+nav {
+    background-color: black;
+    /* total with = 160px + 20px *2 = 200px */
+    width: 160px;
+    padding: 20px;
+    /* Height of the nav should be equal to the total height
+     of the view minus the height of the header, because we
+     should consider the size of the header in the navbar's
+     default height. */
+     height: calc(100% - 40px);
+     display: inline-block;
+     flex-grow: 0;
+     color: white;
+     display: none;
+}
+#mainSidebar {
+    margin: 0;
+    list-style-type: none;
+    /* display: none; */
+}
+.endpoints {
+    padding: 6px;
+    border: 1px solid silver;
+    margin: 6px 0;
+    background: silver;
+    color: black;
+    cursor: pointer;
+    border-radius: 6px;
+}
+.endpoints:hover {
+    background: white; 
+}
+#nav-content-container {
+    height: calc(100% - 60px);
+    display: flex;
+}
+#content-area {
+    background: linear-gradient(to right, black, white,black);
+    height: 10px;
+    width: 50px;
+    flex-grow: 1;
+    min-height: 100%;
+    text-align: center;
+    visibility: hidden;
+}
+.content-headers {
+   text-align: center;
+   text-decoration-line: underline; 
+}
+/*Below is the css code from previous login page.  Idea is to replace the whole container after credentials pass. */    
+.mainContentDivs {text-align:center; color:white;text-shadow:2px 1px 1px black;}
+#indexMainContent {font-size:30px; border:2px solid black;padding:6% 30% 10%;box-shadow: 1px 1px 1px black;
+    background: linear-gradient(to top, black, lightgreen, black);
+    position: absolute;top:50%;left:50%;
+    transform: translate(-50%, -50%);}
+.directions {margin-top:0;}
+#forlabel4username, #forlabel4passwordInput {font-size:20px;cursor: pointer;text-align: left;}
+.submits {margin-top:20px;padding:8px;border:1px solid black;border-radius: 6px;cursor: pointer;}
+.incorrects {color:red;font-size: 20px;display:none;}
+#usernameInput, #passwordInput {
+    padding:12px;
+    border:1px solid silver;
+    border-radius: 8px;
+}
+.inputs, .textareas {
+    padding: 6px;
+    border-radius: 4px;
+}
+.textareas {
+    resize:horizontal;
+}
+.labels {
+    cursor: pointer;
+}
+.outer-content {
+    border: 1px solid silver;text-align: left;
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 98%;
+    background:linear-gradient(lightgreen, white, lightgreen);
+}
+.innerContentUls {
+    list-style-type: none;
+}
+.radios {margin-right: 20px;}
+.outer-content {
+    display: none;
+}
+#submitNewReim {
+    margin-left:70px;
+    margin-bottom: 30px;
+    padding: 12px 24px;
+    border-radius: 6px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+
