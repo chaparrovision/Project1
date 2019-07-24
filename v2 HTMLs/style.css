@@ -112,8 +112,9 @@ nav {
     margin-bottom: 30px;
     padding: 12px 24px;
     border-radius: 6px;
-    vertical-align: middle;
     cursor: pointer;
 }
-
+.respones-from_queries {
+    margin:10px;
+}
 

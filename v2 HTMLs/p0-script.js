@@ -17,12 +17,14 @@ function toGetAllUsers() {
     document.getElementById("indexContentDiv").style.display="none";   
     document.getElementById("outer-content-createNewReImbursement").style.display = "none";
     document.getElementById("outer-content-getUserById").style.display = "none";
+    document.getElementById("outer-content-updateUser").style.display = "none";
     document.getElementById("outer-content-getAllUsers").style.display="block";
 }
 function toCreateNewReimb() {
     document.getElementById("indexContentDiv").style.display="none";
     document.getElementById("outer-content-getAllUsers").style.display="none"; 
-    document.getElementById("outer-content-getUserById").style.display = "none";  
+    document.getElementById("outer-content-getUserById").style.display = "none"; 
+    document.getElementById("outer-content-updateUser").style.display = "none"; 
     document.getElementById("outer-content-createNewReImbursement").style.display = "block";
     
 }
@@ -30,7 +32,16 @@ function toGetUserById() {
     document.getElementById("indexContentDiv").style.display="none";
     document.getElementById("outer-content-getAllUsers").style.display="none";   
     document.getElementById("outer-content-createNewReImbursement").style.display = "none";
+    document.getElementById("outer-content-updateUser").style.display = "none";
     document.getElementById("outer-content-getUserById").style.display = "block";
+    
+}
+function toUpdateUser() {
+    document.getElementById("indexContentDiv").style.display="none";
+    document.getElementById("outer-content-getAllUsers").style.display="none";   
+    document.getElementById("outer-content-createNewReImbursement").style.display = "none";
+    document.getElementById("outer-content-getUserById").style.display = "none";
+    document.getElementById("outer-content-updateUser").style.display = "block";
     
 }
 

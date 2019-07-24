@@ -38,7 +38,7 @@
                 <li class="endpoints" id="create-new-reimb">Create New Reimbursement</li>
                 <li class="endpoints" id="get-all-users-btn">Get All Users</li>
                 <li class="endpoints" id="get-user-by-Id-btn">Get User By Id</li>
-                <li class="endpoints" id="">Update User</li>
+                <li class="endpoints" id="get-update-user-btn">Update User</li>
                 <li class="endpoints" id="">Reimbursements By Status</li>
                 <li class="endpoints" id="">Get Reimbursement By Type</li>
                 <li class="endpoints" id="">Get All Reimbursements</li>
@@ -62,15 +62,18 @@
                         <li><label class="labels" for="reimbursement-date">Today's Date: &nbsp;</label><br>
                             <input type="date" class="inputs" id="reimbursement-date" name="reimbursement-date"/>
                         </li><br>
-                        <li>
+                        <li id="createImTextarea">
                             <label class="labels" for="reimbursement-desc">Description</label><br>
                             <textarea class="textareas" rows="2" cols="30" name="reimbursement-desc"
                                 placeholder="Enter a description here" maxlength="50";>
                             </textarea>
-                            <button class="submits" type="submit" id="submitNewReim">Submit</button>
+                            <button class="submits" type="submit" id="submitNewReim">SUBMIT</button>
                         </li>                        
                     </ul>
                     <hr>
+                    <p class="respones-from_queries" id="submit-new-reim-response">
+                        This is the response area:
+                    </p>
                 </div>
             </div>
             <div class="outer-content" id="outer-content-getAllUsers">
