@@ -3,7 +3,7 @@ document.getElementById("loginBtn").addEventListener("click", toMainBody);
 document.getElementById("employee-info-btn").addEventListener("click", toGetEmployeeInfo);
 document.getElementById("get-all-users-btn").addEventListener("click", toGetAllUsers);
 document.getElementById("create-new-reimb").addEventListener("click", toCreateNewReimb);
-document.getElementById("get-user-by-Id-btn").addEventListener("click", toGetUserById);
+//document.getElementById("get-user-by-Id-btn").addEventListener("click", toGetUserById);
 document.getElementById("get-update-user-btn").addEventListener("click", toUpdateUser);
 document.getElementById("get-reim-by-status-btn").addEventListener("click", toGetReimByStatus);
 document.getElementById("get-reim-by-type-btn").addEventListener("click", toGetReimByType);
@@ -21,7 +21,7 @@ function toMainBody() {
 function toGetEmployeeInfo() {
     document.getElementById("indexContentDiv").style.display="none";   
     document.getElementById("outer-content-createNewReImbursement").style.display = "none";
-    document.getElementById("outer-content-getUserById").style.display = "none";
+   //document.getElementById("outer-content-getUserById").style.display = "none";
     document.getElementById("outer-content-updateUser").style.display = "none";
     document.getElementById("outer-content-getReimByStatus").style.display = "none";
     document.getElementById("outer-content-getReimByType").style.display = "none";
@@ -34,7 +34,7 @@ function toGetAllUsers() {
     document.getElementById("indexContentDiv").style.display="none";
     document.getElementById("outer-content-getEmployeeInfo").style.display="none";  
     document.getElementById("outer-content-createNewReImbursement").style.display = "none";
-    document.getElementById("outer-content-getUserById").style.display = "none";
+    //document.getElementById("outer-content-getUserById").style.display = "none";
     document.getElementById("outer-content-updateUser").style.display = "none";
     document.getElementById("outer-content-updateUser").style.display = "none";
     document.getElementById("outer-content-getReimByStatus").style.display = "none";
@@ -47,7 +47,7 @@ function toCreateNewReimb() {
     document.getElementById("indexContentDiv").style.display="none";
     document.getElementById("outer-content-getEmployeeInfo").style.display="none";
     document.getElementById("outer-content-getAllUsers").style.display="none"; 
-    document.getElementById("outer-content-getUserById").style.display = "none"; 
+    //document.getElementById("outer-content-getUserById").style.display = "none"; 
     document.getElementById("outer-content-updateUser").style.display = "none";
     document.getElementById("outer-content-getReimByStatus").style.display = "none";
     document.getElementById("outer-content-getReimByType").style.display = "none";
@@ -56,7 +56,7 @@ function toCreateNewReimb() {
     document.getElementById("outer-content-createNewReImbursement").style.display = "block";
     
 }
-function toGetUserById() {
+/* function toGetUserById() {
     document.getElementById("indexContentDiv").style.display="none";
     document.getElementById("outer-content-getEmployeeInfo").style.display="none";
     document.getElementById("outer-content-getAllUsers").style.display="none";   
@@ -68,13 +68,13 @@ function toGetUserById() {
     document.getElementById("outer-content-updateReims").style.display = "none";
     document.getElementById("outer-content-getUserById").style.display = "block";
     
-}
+} */
 function toUpdateUser() {
     document.getElementById("indexContentDiv").style.display="none";
     document.getElementById("outer-content-getEmployeeInfo").style.display="none";
     document.getElementById("outer-content-getAllUsers").style.display="none";   
     document.getElementById("outer-content-createNewReImbursement").style.display = "none";
-    document.getElementById("outer-content-getUserById").style.display = "none";
+    //document.getElementById("outer-content-getUserById").style.display = "none";
     document.getElementById("outer-content-getReimByStatus").style.display = "none";
     document.getElementById("outer-content-getReimByType").style.display = "none";
     document.getElementById("outer-content-getAllReims").style.display = "none";
@@ -86,7 +86,7 @@ function toGetReimByStatus() {
     document.getElementById("outer-content-getEmployeeInfo").style.display="none";
     document.getElementById("outer-content-getAllUsers").style.display="none";   
     document.getElementById("outer-content-createNewReImbursement").style.display = "none";
-    document.getElementById("outer-content-getUserById").style.display = "none";
+    //document.getElementById("outer-content-getUserById").style.display = "none";
     document.getElementById("outer-content-updateUser").style.display = "none";
     document.getElementById("outer-content-getReimByType").style.display = "none";
     document.getElementById("outer-content-getAllReims").style.display = "none";
@@ -98,7 +98,7 @@ function toGetReimByType() {
     document.getElementById("outer-content-getEmployeeInfo").style.display="none";
     document.getElementById("outer-content-getAllUsers").style.display="none";   
     document.getElementById("outer-content-createNewReImbursement").style.display = "none";
-    document.getElementById("outer-content-getUserById").style.display = "none";
+    //document.getElementById("outer-content-getUserById").style.display = "none";
     document.getElementById("outer-content-updateUser").style.display = "none";
     document.getElementById("outer-content-getReimByStatus").style.display = "none";
     document.getElementById("outer-content-getAllReims").style.display = "none";
@@ -110,7 +110,7 @@ function toGetAllReims() {
     document.getElementById("outer-content-getEmployeeInfo").style.display="none";
     document.getElementById("outer-content-getAllUsers").style.display="none";   
     document.getElementById("outer-content-createNewReImbursement").style.display = "none";
-    document.getElementById("outer-content-getUserById").style.display = "none";
+    //document.getElementById("outer-content-getUserById").style.display = "none";
     document.getElementById("outer-content-updateUser").style.display = "none";
     document.getElementById("outer-content-getReimByStatus").style.display = "none";
     document.getElementById("outer-content-getReimByType").style.display = "none";
@@ -122,7 +122,7 @@ function toUpdateReims() {
     document.getElementById("outer-content-getEmployeeInfo").style.display="none";
     document.getElementById("outer-content-getAllUsers").style.display="none";   
     document.getElementById("outer-content-createNewReImbursement").style.display = "none";
-    document.getElementById("outer-content-getUserById").style.display = "none";
+    //document.getElementById("outer-content-getUserById").style.display = "none";
     document.getElementById("outer-content-updateUser").style.display = "none";
     document.getElementById("outer-content-getReimByStatus").style.display = "none";
     document.getElementById("outer-content-getReimByType").style.display = "none";

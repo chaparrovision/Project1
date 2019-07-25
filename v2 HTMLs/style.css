@@ -125,4 +125,9 @@ nav {
     text-align: center;
 }
 #id4update {margin-right: 20px;}
-#choosing-status-btn {margin-left: 20px;padding-left:8px;padding-right:8px; }
+#choosing-status-btn, #choosing-type-btn {
+    margin-left: 20px;
+    padding-left:8px;
+    padding-right:8px;
+}
+.options {padding:6px 10px;}

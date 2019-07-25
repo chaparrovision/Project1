@@ -37,8 +37,8 @@
                 <li class="endpoints" id="employee-info-btn">Employee Information</li>
                 <li class="endpoints" id="create-new-reimb">Create New Reimbursement</li>
                 <li class="endpoints" id="get-all-users-btn">Get All Users</li>
-                <li class="endpoints" id="get-user-by-Id-btn">Get / Update User By Id</li>
-                <li class="endpoints" id="get-update-user-btn">Update User</li>
+                <!--<li class="endpoints" id="get-user-by-Id-btn">Get / Update User By Id</li>-->
+                <li class="endpoints" id="get-update-user-btn">Get / Update User By Id</li>
                 <li class="endpoints" id="get-reim-by-status-btn">Reimbursements By Status</li>
                 <li class="endpoints" id="get-reim-by-type-btn">Reimbursements By Type</li>
                 <li class="endpoints" id="get-all-reims-btn">Get All Reimbursements</li>
@@ -88,7 +88,7 @@
                     <h2 class="content-headers" id="createImbursement">All Users</h2>
                 </div>
             </div>
-            <div class="outer-content" id="outer-content-getUserById">
+            <!--<div class="outer-content" id="outer-content-getUserById">
                 <div class="inner-content" id="inner-content-get-user-by-id">
                     <h2 class="content-headers" id="get-user-by-id">Get User By Id</h2>
                     <div class="" id="user-id-div">
@@ -104,10 +104,10 @@
                         <p class="responses-from_queries" id="user-id-response">&nbsp;</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="outer-content" id="outer-content-updateUser">
                 <div class="inner-content" id="inner-content-update-user">
-                    <h2 class="content-headers" id="get-update-user">Update User</h2>
+                    <h2 class="content-headers" id="get-update-user">Get / Update User</h2>
                     <div class="content-area-divs" id="update-user-div">
                         <p class="instruction-ps" >
                             <label class="labels" for="id4update" >Enter the ID of the user you want to update:</label>
@@ -201,6 +201,9 @@
                             <option class="options" value="3">3 - Food</option>
                             <option class="options" value="4">4 - Other</option>
                         </select>
+                        <button type="submit" class="submits" id="choosing-type-btn" 
+                            name="choosing-type-btn" value="">Submit Type
+                        </button>
                     </p>
                 </div>
                 <hr>
@@ -218,6 +221,89 @@
             <div class="outer-content" id="outer-content-updateReims">
                 <div class="inner-content" id="inner-content-update-reims">
                     <h2 class="content-headers" id="update-reims">Update Reimbursements</h2>
+                    <div class="content-area-divs" id="update-reim-div">
+                        <p class="instruction-ps" >
+                            <label class="labels" for="id4updateReim" >Enter the ID of the Reimbursement you want to update:</label>
+                            <input type="text" class="id-inputs" id="id4updateReim" name="id4updateReim" size="10" >
+                            <button class="submits" type="submit" id="get-reim-4-update-btn">Get Reimbursement</button>
+                        </p>
+                        <hr>
+                        <table class="tables">
+                            <caption class="captions">Edit the below information as needed:</caption>
+                            <tr>
+                                <td>
+                                    <label class="labels" for="update-author-input">Author:   
+                                </td>
+                                <td class="table-tds">
+                                    <input type="text" class="inputs" id="update-author-input"
+                                    name="update-author-input" value="" size="24" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="labels" for="update-amount-input">Amount:   
+                                </td>
+                                <td class="table-tds">
+                                    <input type="text" class="inputs" id="update-amount-input"
+                                    name="update-amount-input" value="" size="24" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="labels" for="update-submit-date-input">Date Submitted:   
+                                </td>
+                                <td class="table-tds">
+                                    <input type="date" class="inputs" id="update-submit-date-input"
+                                    name="update-submit-date-input" value="" size="24" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="labels" for="update-resolved-date-input">Date Resolved:   
+                                </td>
+                                <td class="table-tds">
+                                    <input type="date" class="inputs" id="update-resolved-date-input"
+                                     name="update-resolved-date-input" value="" size="24" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="labels" for="update-description-input">Description:   
+                                </td>
+                                <td class="table-tds">
+                                    <input type="text" class="inputs" id="update-description-input"
+                                        name="update-description-input" value="" size="40" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="labels" for="update-resolver-input">Resolver:   
+                                </td>
+                                <td class="table-tds">
+                                    <input type="text" class="id-inputs" id="update-resolver-input"
+                                        name="update-resolver-input" value="" size="10" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="labels" for="update-status-input">Status:   
+                                </td>
+                                <td class="table-tds">
+                                    <input type="text" class="id-inputs" id="update-status-input"
+                                        name="update-status-input" value="" size="10" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="labels" for="update-type-input">Status:   
+                                </td>
+                                <td class="table-tds">
+                                    <input type="text" class="id-inputs" id="update-type-input"
+                                        name="update-type-input" value="" size="10" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
