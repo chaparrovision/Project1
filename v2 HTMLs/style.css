@@ -76,14 +76,14 @@ nav {
     transform: translate(-50%, -50%);}
 .directions {margin-top:0;}
 #forlabel4username, #forlabel4passwordInput {font-size:20px;cursor: pointer;text-align: left;}
-.submits {margin-top:20px;padding:8px;border:1px solid black;border-radius: 6px;cursor: pointer;}
+.submits {margin-top:20px;padding:8px 24px;border:1px solid silver;border-radius: 6px;cursor: pointer;}
 .incorrects {color:red;font-size: 20px;display:none;}
 #usernameInput, #passwordInput {
     padding:12px;
     border:1px solid silver;
     border-radius: 8px;
 }
-.inputs, .textareas {
+.inputs, .textareas, .id-inputs {
     padding: 6px;
     border-radius: 4px;
 }
@@ -111,11 +111,18 @@ nav {
     margin-left:70px;
     margin-bottom: 30px;
     padding: 8px 24px;
-    border: 1px solid black;
+    border: 1px solid silver;
     border-radius: 6px;
     cursor: pointer;
 }
-.responses-from_queries, .content-ps {
+.responses-from_queries, .content-ps, .instruction-ps, .input-ps, .captions, .response-areas {
     margin:10px;
 }
-
+.tables {
+    margin:6px 30px;
+}
+#update-user-btn-td {
+    text-align: center;
+}
+#id4update {margin-right: 20px;}
+#choosing-status-btn {margin-left: 20px;padding-left:8px;padding-right:8px; }

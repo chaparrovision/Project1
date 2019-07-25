@@ -37,10 +37,10 @@
                 <li class="endpoints" id="employee-info-btn">Employee Information</li>
                 <li class="endpoints" id="create-new-reimb">Create New Reimbursement</li>
                 <li class="endpoints" id="get-all-users-btn">Get All Users</li>
-                <li class="endpoints" id="get-user-by-Id-btn">Get User By Id</li>
+                <li class="endpoints" id="get-user-by-Id-btn">Get / Update User By Id</li>
                 <li class="endpoints" id="get-update-user-btn">Update User</li>
                 <li class="endpoints" id="get-reim-by-status-btn">Reimbursements By Status</li>
-                <li class="endpoints" id="get-reim-by-type-btn">Get Reimbursement By Type</li>
+                <li class="endpoints" id="get-reim-by-type-btn">Reimbursements By Type</li>
                 <li class="endpoints" id="get-all-reims-btn">Get All Reimbursements</li>
                 <li class="endpoints" id="update-reims-btn">Update Reimbursements</li>
             </ul>
@@ -91,23 +91,125 @@
             <div class="outer-content" id="outer-content-getUserById">
                 <div class="inner-content" id="inner-content-get-user-by-id">
                     <h2 class="content-headers" id="get-user-by-id">Get User By Id</h2>
+                    <div class="" id="user-id-div">
+                        <p class="instruction-ps" id="get-user-by-id-instruction">
+                            <label class="labels" for="user-id">Enter a user ID to obtain record(s):</label> &nbsp;
+                            <input type="text" class="inputs" id="user-id" name="user-id" value="">
+                            <span>&nbsp; &nbsp; &nbsp; &nbsp;</span>
+                            <button type="submit" class="submits" id="user-id-submit">SUBMIT</button>
+                        </p>
+                    </div>
+                    <hr>
+                    <div class="response-areas" id="user-id-area">
+                        <p class="responses-from_queries" id="user-id-response">&nbsp;</p>
+                    </div>
                 </div>
             </div>
             <div class="outer-content" id="outer-content-updateUser">
                 <div class="inner-content" id="inner-content-update-user">
                     <h2 class="content-headers" id="get-update-user">Update User</h2>
+                    <div class="content-area-divs" id="update-user-div">
+                        <p class="instruction-ps" >
+                            <label class="labels" for="id4update" >Enter the ID of the user you want to update:</label>
+                            <input type="text" class="id-inputs" id="id4update" name="id4update" size="10" >
+                            <button class="submits" type="submit" id="get-user-4-update-btn">Get User</button>
+                        </p>
+                        <hr>
+                        <table class="tables">
+                            <caption class="captions">Edit the below information as needed:</caption>
+                            <tr>
+                                <td><label class="labels" for="update-user-id-input">User ID:</label></td>
+                                <td class="table-tds">
+                                    <input type="text" class="id-inputs" id="update-user-id-input"
+                                     name="update-user-id-input" value="" size="10" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label class="labels" for="update-username-input">Username:</label></td>
+                                <td class="table-tds">
+                                    <input type="text" class="id-inputs" id="update-username-input"
+                                        name="update-username-input" value="" size="24" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label class="labels" for="update-firstname-input">First Name:</label></td>
+                                <td class="table-tds">
+                                    <input type="text" class="inputs" id="update-firstname-input"
+                                    name="update-firstname-input" value="" size="24"/> &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label class="labels" for="update-lastname-input">Last Name:</label></td>
+                                <td class="table-tds">
+                                    <input type="text" class="inputs" id="update-lastname-input"
+                                    name="update-lastname-input" value="" size="24"/> &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label class="labels" for="update-email-input">Email:</label></td>
+                                <td class="table-tds">
+                                    <input type="text" class="inputs" id="update-email-input"
+                                    name="update-email-input" value="" size="24"/> &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label class="labels" for="update-role-input">Role:</label></td>
+                                <td class="table-tds">
+                                    <input type="text" class="inputs" id="update-role-input"
+                                    name="update-role-input" value="" size="10"/> &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id="update-user-btn-td" colspan="2">
+                                    <button class="submits" type="submit" id="submit-update-user-btn">SUBMIT</button>
+                                </td>
+                            </tr>
+                        </table>                       
+                    </div>
                 </div>
             </div>
             <div class="outer-content" id="outer-content-getReimByStatus">
                 <div class="inner-content" id="inner-content-get-reim-by-status">
-                    <h2 class="content-headers" id="get-reim-by-status">Get Reimbursement Status</h2>
+                    <h2 class="content-headers" id="get-reim-by-status">Get Reimbursement By Status</h2>
+                </div>
+                <div class="content-divs" id="reim-by-status-div">
+                    <p class="responses-from_queries">Use the Dropdown Menu to Select Reimbursements By Status:
+                        <select>
+                            <option class="options" value="1">1 - Pending</option>
+                            <option class="options" value="2">2 - Approved</option>
+                            <option class="options" value="3">3 - Denied</option>
+                        </select>
+                        <button type="submit" class="submits" id="choosing-status-btn" 
+                            name="choosing-status-btn" value="">Submit Status
+                        </button>
+                    </p>
+                </div>
+                <hr>
+                <div class="response-areas">
+                    <p class="responses-from_queries" id="reim-by-status-response">&nbsp;</p>
                 </div>
             </div>
             <div class="outer-content" id="outer-content-getReimByType">
                 <div class="inner-content" id="inner-content-get-reim-by-type">
                     <h2 class="content-headers" id="get-reim-by-type">Get Reimbursement Type</h2>
                 </div>
+                <div class="content-divs" id="reim-by-type-div">
+                    <p class="responses-from_queries">Use the Dropdown Menu to Select Reimbursements By Type:
+                        <select>
+                            <option class="options" value="1">1 - Lodging</option>
+                            <option class="options" value="2">2 - Travel</option>
+                            <option class="options" value="3">3 - Food</option>
+                            <option class="options" value="4">4 - Other</option>
+                        </select>
+                    </p>
+                </div>
+                <hr>
+                <div class="response-areas">
+                    <p class="responses-from_queries" id="reim-by-type-response">&nbsp;</p>
+                </div>
             </div>
+            
+            
             <div class="outer-content" id="outer-content-getAllReims">
                 <div class="inner-content" id="inner-content-get-all-reims">
                     <h2 class="content-headers" id="get-all-reims">Get All Reimbursements</h2>
