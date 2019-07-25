@@ -25,7 +25,7 @@
                     Enter Your Password:</label>
                     <input class="inputs" id="passwordInput" name="passwordInput" 
                     size="40" value="" type="password" placeholder="Password"/><br/>
-                <button type="submit" class="submits" id="loginBtn" name="loginBtn" 
+                <button type="submit" value="submit" class="submits" id="loginBtn" name="loginBtn" 
                     >Submit Credentials
                 </button>
                 <p class="incorrects" id="wrongLogin">Credentials incorrect!  Try again.</p>
@@ -34,7 +34,7 @@
     <div class="nav-containers" id="nav-content-container">
         <nav class="" id="navBar">
             <ul class="uls" id="mainSidebar">
-                <li class="endpoints" id="empl-info-btn">Employee Information</li>
+                <li class="endpoints" id="employee-info-btn">Employee Information</li>
                 <li class="endpoints" id="create-new-reimb">Create New Reimbursement</li>
                 <li class="endpoints" id="get-all-users-btn">Get All Users</li>
                 <li class="endpoints" id="get-user-by-Id-btn">Get User By Id</li>
@@ -46,6 +46,13 @@
             </ul>
         </nav>
         <div class="main-content-area" id="content-area">
+            <div class="outer-content" id="outer-content-getEmployeeInfo">
+                <div class="inner-content" id="inner-content-get-employee-info">
+                    <h2 class="content-headers" id="getEmplyeeInfo">Employee Reimbursement Information</h2>
+                    <p class="content-ps" id="employee_p1">Below is your information:</p>
+                    <p class="responses-from_queries" id="employee_p2">&nbsp;</p>
+                 </div>
+            </div>
             <div class="outer-content" id="outer-content-createNewReImbursement">
                 <div class="inner-content" id="inner-content-for-CreateReimb">
                         <h2 class="content-headers" id="createImbursementTitle">Create New Reimbursement</h2>
@@ -71,7 +78,7 @@
                         </li>                        
                     </ul>
                     <hr>
-                    <p class="respones-from_queries" id="submit-new-reim-response">
+                    <p class="responses-from_queries" id="submit-new-reim-response">
                         This is the response area:
                     </p>
                 </div>

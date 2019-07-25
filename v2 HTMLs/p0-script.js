@@ -1,5 +1,6 @@
 
 document.getElementById("loginBtn").addEventListener("click", toMainBody);
+document.getElementById("employee-info-btn").addEventListener("click", toGetEmployeeInfo);
 document.getElementById("get-all-users-btn").addEventListener("click", toGetAllUsers);
 document.getElementById("create-new-reimb").addEventListener("click", toCreateNewReimb);
 document.getElementById("get-user-by-Id-btn").addEventListener("click", toGetUserById);
@@ -14,11 +15,24 @@ function toMainBody() {
     document.getElementById("nav-content-container").style.display="flex";
     document.getElementById("navBar").style.display="block";
     document.getElementById("content-area").style.visibility="visible";
-    document.getElementById("outer-content-createNewReImbursement").style.display="block"
+    document.getElementById("outer-content-getEmployeeInfo").style.display="block"
     
 }
-function toGetAllUsers() {
+function toGetEmployeeInfo() {
     document.getElementById("indexContentDiv").style.display="none";   
+    document.getElementById("outer-content-createNewReImbursement").style.display = "none";
+    document.getElementById("outer-content-getUserById").style.display = "none";
+    document.getElementById("outer-content-updateUser").style.display = "none";
+    document.getElementById("outer-content-getReimByStatus").style.display = "none";
+    document.getElementById("outer-content-getReimByType").style.display = "none";
+    document.getElementById("outer-content-getAllReims").style.display = "none";
+    document.getElementById("outer-content-updateReims").style.display = "none";
+    document.getElementById("outer-content-getAllUsers").style.display="none";
+    document.getElementById("outer-content-getEmployeeInfo").style.display="block";
+}
+function toGetAllUsers() {
+    document.getElementById("indexContentDiv").style.display="none";
+    document.getElementById("outer-content-getEmployeeInfo").style.display="none";  
     document.getElementById("outer-content-createNewReImbursement").style.display = "none";
     document.getElementById("outer-content-getUserById").style.display = "none";
     document.getElementById("outer-content-updateUser").style.display = "none";
@@ -31,6 +45,7 @@ function toGetAllUsers() {
 }
 function toCreateNewReimb() {
     document.getElementById("indexContentDiv").style.display="none";
+    document.getElementById("outer-content-getEmployeeInfo").style.display="none";
     document.getElementById("outer-content-getAllUsers").style.display="none"; 
     document.getElementById("outer-content-getUserById").style.display = "none"; 
     document.getElementById("outer-content-updateUser").style.display = "none";
@@ -43,6 +58,7 @@ function toCreateNewReimb() {
 }
 function toGetUserById() {
     document.getElementById("indexContentDiv").style.display="none";
+    document.getElementById("outer-content-getEmployeeInfo").style.display="none";
     document.getElementById("outer-content-getAllUsers").style.display="none";   
     document.getElementById("outer-content-createNewReImbursement").style.display = "none";
     document.getElementById("outer-content-updateUser").style.display = "none";
@@ -55,6 +71,7 @@ function toGetUserById() {
 }
 function toUpdateUser() {
     document.getElementById("indexContentDiv").style.display="none";
+    document.getElementById("outer-content-getEmployeeInfo").style.display="none";
     document.getElementById("outer-content-getAllUsers").style.display="none";   
     document.getElementById("outer-content-createNewReImbursement").style.display = "none";
     document.getElementById("outer-content-getUserById").style.display = "none";
@@ -66,6 +83,7 @@ function toUpdateUser() {
 }
 function toGetReimByStatus() {
     document.getElementById("indexContentDiv").style.display="none";
+    document.getElementById("outer-content-getEmployeeInfo").style.display="none";
     document.getElementById("outer-content-getAllUsers").style.display="none";   
     document.getElementById("outer-content-createNewReImbursement").style.display = "none";
     document.getElementById("outer-content-getUserById").style.display = "none";
@@ -77,6 +95,7 @@ function toGetReimByStatus() {
 }
 function toGetReimByType() {
     document.getElementById("indexContentDiv").style.display="none";
+    document.getElementById("outer-content-getEmployeeInfo").style.display="none";
     document.getElementById("outer-content-getAllUsers").style.display="none";   
     document.getElementById("outer-content-createNewReImbursement").style.display = "none";
     document.getElementById("outer-content-getUserById").style.display = "none";
@@ -88,6 +107,7 @@ function toGetReimByType() {
 }
 function toGetAllReims() {
     document.getElementById("indexContentDiv").style.display="none";
+    document.getElementById("outer-content-getEmployeeInfo").style.display="none";
     document.getElementById("outer-content-getAllUsers").style.display="none";   
     document.getElementById("outer-content-createNewReImbursement").style.display = "none";
     document.getElementById("outer-content-getUserById").style.display = "none";
@@ -99,6 +119,7 @@ function toGetAllReims() {
 }
 function toUpdateReims() {
     document.getElementById("indexContentDiv").style.display="none";
+    document.getElementById("outer-content-getEmployeeInfo").style.display="none";
     document.getElementById("outer-content-getAllUsers").style.display="none";   
     document.getElementById("outer-content-createNewReImbursement").style.display = "none";
     document.getElementById("outer-content-getUserById").style.display = "none";
