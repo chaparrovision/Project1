@@ -1,5 +1,6 @@
 
-document.getElementById("loginBtn").addEventListener("click", toMainBody);
+//document.getElementById("loginBtn").addEventListener("click", toMainBody);
+document.getElementById("loginBtn").addEventListener("click", loginChecker);
 document.getElementById("employee-info-btn").addEventListener("click", toGetEmployeeInfo);
 document.getElementById("get-all-users-btn").addEventListener("click", toGetAllUsers);
 document.getElementById("create-new-reimb").addEventListener("click", toCreateNewReimb);
@@ -8,16 +9,43 @@ document.getElementById("get-update-user-btn").addEventListener("click", toUpdat
 document.getElementById("get-reim-by-status-btn").addEventListener("click", toGetReimByStatus);
 document.getElementById("get-reim-by-type-btn").addEventListener("click", toGetReimByType);
 document.getElementById("get-all-reims-btn").addEventListener("click", toGetAllReims);
-document.getElementById("update-reims-btn").addEventListener("click", toUpdateReims);//resume
-               
+document.getElementById("update-reims-btn").addEventListener("click", toUpdateReims);
+ 
+
+//async function loginChecker(username,pswd) {
+async function loginChecker() {
+    var a = document.getElementById('usernameInput').value;
+    var b = document.getElementById('passwordInput').value;
+    console.log('username is', a, "and pswd is", b); // this works
+    const payload = await fetch('http://localhost:3000/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ username: a, password: b })
+    })
+    console.log(await payload.status);
+    if (await payload.status === 400) {
+        document.getElementById('wrongLogin').style.display = 'block';
+    }  else {
+        const response = await payload.json();
+        //console.log(response);
+        document.getElementById('ret-user-id').innerText = response.userInfo.userName;
+        document.getElementById('ret-first-name').innerText = response.userInfo.firstName;
+        document.getElementById('ret-last-name').innerText = response.userInfo.lastName;
+        document.getElementById('ret-email').innerText = response.userInfo.email;
+        toMainBody();
+    }
+}
+
 function toMainBody() {
     document.getElementById("indexContentDiv").style.display="none";
     document.getElementById("nav-content-container").style.display="flex";
     document.getElementById("navBar").style.display="block";
     document.getElementById("content-area").style.visibility="visible";
-    document.getElementById("outer-content-getEmployeeInfo").style.display="block"
-    
+    document.getElementById("outer-content-getEmployeeInfo").style.display="block"   
 }
+
 function toGetEmployeeInfo() {
     document.getElementById("indexContentDiv").style.display="none";   
     document.getElementById("outer-content-createNewReImbursement").style.display = "none";
@@ -34,7 +62,6 @@ function toGetAllUsers() {
     document.getElementById("indexContentDiv").style.display="none";
     document.getElementById("outer-content-getEmployeeInfo").style.display="none";  
     document.getElementById("outer-content-createNewReImbursement").style.display = "none";
-    //document.getElementById("outer-content-getUserById").style.display = "none";
     document.getElementById("outer-content-updateUser").style.display = "none";
     document.getElementById("outer-content-updateUser").style.display = "none";
     document.getElementById("outer-content-getReimByStatus").style.display = "none";
@@ -121,3 +148,4 @@ function toUpdateReims() {
     document.getElementById("outer-content-getAllReims").style.display = "none";  
     document.getElementById("outer-content-updateReims").style.display = "block";  
 }
+// export default toMainBody;

@@ -8,6 +8,7 @@ import { closePool } from './util/pg-connector';
 import userRouter from './routers/user-router';
 import roleRouter from './routers/role-router';
 
+const cors = require('cors');
 // creating instance of express App by calling express method
 const app = express(); //sets up express
 //const port = 3000; 
@@ -27,6 +28,7 @@ next is the next middleware function
 */
 // This middleware will convert a request body of type application json
 // to a javascript object and define that at request.body
+app.use(cors());
 app.use(bodyParser.json());
 
 //registering middleware
@@ -38,6 +40,7 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
     secret: 'my-secret',
+    cookie: {secure:false}
 }));
 
 app.use( (request: Request, response: Response, next) => {
@@ -51,7 +54,7 @@ app.use( (request: Request, response: Response, next) => {
     next();
  }); 
 
- /* Routers - we will register two routers with the routes: 'cats' and 'food'
+ /* Routers - we will register routers with the routes: 'user', login and 'reimbursement'
  We need to remember to register the routes here */
 //app.use('/userIds', userIdRouter); //specifies the name called on Postman, like localhost:3000/userIds
 app.use('/users', userRouter); //specifies the name called on Postman, like localhost:3000/userIds

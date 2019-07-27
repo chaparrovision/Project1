@@ -11,7 +11,8 @@
 <body>
     <header class="headers" id="header1">
         <h1 class="h1s" id="h1a">
-            ERS:  Expense Reimbursement System
+            <span>ERS:  Expense Reimbursement System</span> &nbsp; &nbsp; 
+            <span class="login-btns" id="logoutBtn"> Logout</span>
         </h1>
     </header>
     <div class="mainContentDivs" id="indexContentDiv">
@@ -50,8 +51,15 @@
                 <div class="inner-content" id="inner-content-get-employee-info">
                     <h2 class="content-headers" id="getEmplyeeInfo">Employee Reimbursement Information</h2>
                     <p class="content-ps" id="employee_p1">Below is your information:</p>
-                    <p class="responses-from_queries" id="employee_p2">&nbsp;</p>
-                 </div>
+                    <!--<p class="responses-from_queries" id="employee_p2">&nbsp;</p>-->
+                    <hr>
+                    <ul class="returned-info-ul" id="userInfoSpecs-ul">
+                        UserName: <li class="returned-info" id="ret-user-id"></li>
+                        First Name:<li class="returned-info" id="ret-first-name"></li>
+                        Last Name:<li class="returned-info" id="ret-last-name"></li>
+                        Email:<li class="returned-info" id="ret-email"></li>
+                    </ul>
+                </div>
             </div>
             <div class="outer-content" id="outer-content-createNewReImbursement">
                 <div class="inner-content" id="inner-content-for-CreateReimb">
@@ -87,24 +95,12 @@
                 <div class="inner-content" id="inner-content-get-all-users">
                     <h2 class="content-headers" id="createImbursement">All Users</h2>
                 </div>
-            </div>
-            <!--<div class="outer-content" id="outer-content-getUserById">
-                <div class="inner-content" id="inner-content-get-user-by-id">
-                    <h2 class="content-headers" id="get-user-by-id">Get User By Id</h2>
-                    <div class="" id="user-id-div">
-                        <p class="instruction-ps" id="get-user-by-id-instruction">
-                            <label class="labels" for="user-id">Enter a user ID to obtain record(s):</label> &nbsp;
-                            <input type="text" class="inputs" id="user-id" name="user-id" value="">
-                            <span>&nbsp; &nbsp; &nbsp; &nbsp;</span>
-                            <button type="submit" class="submits" id="user-id-submit">SUBMIT</button>
-                        </p>
-                    </div>
-                    <hr>
-                    <div class="response-areas" id="user-id-area">
-                        <p class="responses-from_queries" id="user-id-response">&nbsp;</p>
-                    </div>
+                <div class='auto-fill-ULs' id='all-users-ul'>
+                    <ul class='auto-ul' id=''>
+                    </ul>       
                 </div>
-            </div> -->
+            </div>
+
             <div class="outer-content" id="outer-content-updateUser">
                 <div class="inner-content" id="inner-content-update-user">
                     <h2 class="content-headers" id="get-update-user">Get / Update User</h2>

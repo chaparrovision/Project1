@@ -13,11 +13,21 @@ header {
     padding: 10px;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     height: var(--header-height);
 }
 header > h1 {
     margin: 0;
+}
+#logoutBtn {
+    font-size: 12px;
+    cursor: pointer;
+    padding:2px 6px;
+    color: black;
+    letter-spacing: 1px;
+    background:silver;
+    vertical-align: middle;
+    border-radius: 4px;
 }
 nav {
     background-color: black;
@@ -95,8 +105,8 @@ nav {
 }
 .outer-content {
     border: 1px solid silver;text-align: left;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 6%;
+    margin-right: 6%;
     height: 98%;
     background:linear-gradient(lightgreen, white, lightgreen);
 }
@@ -131,3 +141,12 @@ nav {
     padding-right:8px;
 }
 .options {padding:6px 10px;}
+.returned-info-ul li {
+    list-style-type: none;
+    background: white;
+    border: 1px solid silver;
+    border-radius: 6px;
+    padding:4px 10px;
+    width:50%;
+    margin-bottom: 14px;
+}
