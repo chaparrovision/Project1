@@ -30,13 +30,13 @@ reimbursementRouter.post('/', async(req: Request, response: Response) => {
     });
 
 //reimbursementRouter.get('/', (request: Request, response: Response) => {
-    reimbursementRouter.get('/type/:typeId',
+    reimbursementRouter.get('/author/:authorId',
     async (request: Request, response: Response) => {
         if (request.session.role <= 1)  {
             response.sendStatus(403);
         } else {
-            const id = parseInt(request.params.typeId);
-            const item: Reimbursement[] = await reimbursementService.getReimbursementByTypeId(id);
+            const id = parseInt(request.params.authorId);
+            const item: Reimbursement[] = await reimbursementService.getReimbursementByAuthor(id);
             if (item.length) {
                 response.status(200).json(item);
             } else {
@@ -45,7 +45,21 @@ reimbursementRouter.post('/', async(req: Request, response: Response) => {
         }
     });
 
+// reimbursementRouter.post('',
+//     (request: Request, response: Response) => {
+//         const reimbursement = new Reimbursement(request.body);
 
+//         reimbursementService.createReimbursement(reimbursement)
+//             // This handler receives the row data
+//             // from the service method
+//             .then((rows) => {
+//                 if (rows.length > 0) {
+//                     response.status(201).json(rows[0]);
+//                 } else {
+//                     response.sendStatus(400);
+//                 }
+//             });
+//     });
 
 
 reimbursementRouter.patch('',

@@ -3,15 +3,14 @@
 document.getElementById("loginBtn").addEventListener("click", loginChecker);
 document.getElementById("employee-info-btn").addEventListener("click", toGetEmployeeInfo);
 document.getElementById("get-all-users-btn").addEventListener("click", createTableForAllUsers);
-//document.getElementById("get-all-users-btn").addEventListener("click", toGetAllUsers);
 document.getElementById("create-new-reimb").addEventListener("click", toCreateNewReimb);
-//document.getElementById("get-user-by-Id-btn").addEventListener("click", toGetUserById);
 document.getElementById("get-update-user-btn").addEventListener("click", toUpdateUser);
 document.getElementById("get-reim-by-status-btn").addEventListener("click", toGetReimByStatus);
-document.getElementById("get-reim-by-type-btn").addEventListener("click", toGetReimByType);
-//document.getElementById("get-all-reims-btn").addEventListener("click", createTableForAllReimbursements);
-document.getElementById("update-reims-btn").addEventListener("click", toUpdateReims);
 document.getElementById("choosing-status-btn").addEventListener("click", createTableForReimByStatus);
+document.getElementById("get-reim-by-id-btn").addEventListener("click", toGetReimById);
+document.getElementById("choosing-reim-by-id-btn").addEventListener("click", createTableForReimById);
+document.getElementById("update-reims-btn").addEventListener("click", toUpdateReims);
+
 
 
 
@@ -55,7 +54,7 @@ function toGetEmployeeInfo() {
    //document.getElementById("outer-content-getUserById").style.display = "none";
     document.getElementById("outer-content-updateUser").style.display = "none";
     document.getElementById("outer-content-getReimByStatus").style.display = "none";
-    document.getElementById("outer-content-getReimByType").style.display = "none";
+    document.getElementById("outer-content-getReimById").style.display = "none";
     //document.getElementById("outer-content-getAllReims").style.display = "none";
     document.getElementById("outer-content-updateReims").style.display = "none";
     document.getElementById("outer-content-getAllUsers").style.display="none";
@@ -68,7 +67,7 @@ function toGetAllUsers() {
     document.getElementById("outer-content-updateUser").style.display = "none";
     document.getElementById("outer-content-updateUser").style.display = "none";
     document.getElementById("outer-content-getReimByStatus").style.display = "none";
-    document.getElementById("outer-content-getReimByType").style.display = "none";
+    document.getElementById("outer-content-getReimById").style.display = "none";
    //document.getElementById("outer-content-getAllReims").style.display = "none";
     document.getElementById("outer-content-updateReims").style.display = "none";
     document.getElementById("outer-content-getAllUsers").style.display="block";
@@ -79,30 +78,19 @@ function toCreateNewReimb() {
     document.getElementById("outer-content-getAllUsers").style.display="none"; 
     document.getElementById("outer-content-updateUser").style.display = "none";
     document.getElementById("outer-content-getReimByStatus").style.display = "none";
-    document.getElementById("outer-content-getReimByType").style.display = "none";
+    document.getElementById("outer-content-getReimById").style.display = "none";
     //document.getElementById("outer-content-getAllReims").style.display = "none";
     document.getElementById("outer-content-updateReims").style.display = "none";
     document.getElementById("outer-content-createNewReImbursement").style.display = "block";    
 }
-/* function toGetUserById() {
-    document.getElementById("indexContentDiv").style.display="none";
-    document.getElementById("outer-content-getEmployeeInfo").style.display="none";
-    document.getElementById("outer-content-getAllUsers").style.display="none";   
-    document.getElementById("outer-content-createNewReImbursement").style.display = "none";
-    document.getElementById("outer-content-updateUser").style.display = "none";
-    document.getElementById("outer-content-getReimByStatus").style.display = "none";
-    document.getElementById("outer-content-getReimByType").style.display = "none";
-    document.getElementById("outer-content-getAllReims").style.display = "none";
-    document.getElementById("outer-content-updateReims").style.display = "none";
-    document.getElementById("outer-content-getUserById").style.display = "block";    
-} */
+
 function toUpdateUser() {
     document.getElementById("indexContentDiv").style.display="none";
     document.getElementById("outer-content-getEmployeeInfo").style.display="none";
     document.getElementById("outer-content-getAllUsers").style.display="none";   
     document.getElementById("outer-content-createNewReImbursement").style.display = "none";
     document.getElementById("outer-content-getReimByStatus").style.display = "none";
-    document.getElementById("outer-content-getReimByType").style.display = "none";
+    document.getElementById("outer-content-getReimById").style.display = "none";
     //document.getElementById("outer-content-getAllReims").style.display = "none";
     document.getElementById("outer-content-updateReims").style.display = "none";
     document.getElementById("outer-content-updateUser").style.display = "block";   
@@ -113,12 +101,12 @@ function toGetReimByStatus() {
     document.getElementById("outer-content-getAllUsers").style.display="none";   
     document.getElementById("outer-content-createNewReImbursement").style.display = "none";
     document.getElementById("outer-content-updateUser").style.display = "none";
-    document.getElementById("outer-content-getReimByType").style.display = "none";
+    document.getElementById("outer-content-getReimById").style.display = "none";
     //document.getElementById("outer-content-getAllReims").style.display = "none";
     document.getElementById("outer-content-updateReims").style.display = "none";
     document.getElementById("outer-content-getReimByStatus").style.display = "block";   
 }
-function toGetReimByType() {
+function toGetReimById() {
     document.getElementById("indexContentDiv").style.display="none";
     document.getElementById("outer-content-getEmployeeInfo").style.display="none";
     document.getElementById("outer-content-getAllUsers").style.display="none";   
@@ -127,7 +115,7 @@ function toGetReimByType() {
     document.getElementById("outer-content-getReimByStatus").style.display = "none";
     //document.getElementById("outer-content-getAllReims").style.display = "none";
     document.getElementById("outer-content-updateReims").style.display = "none";
-    document.getElementById("outer-content-getReimByType").style.display = "block";   
+    document.getElementById("outer-content-getReimById").style.display = "block";   
 }
 /*function toGetAllReims() {
     document.getElementById("indexContentDiv").style.display="none";
@@ -147,7 +135,7 @@ function toUpdateReims() {
     document.getElementById("outer-content-createNewReImbursement").style.display = "none";
     document.getElementById("outer-content-updateUser").style.display = "none";
     document.getElementById("outer-content-getReimByStatus").style.display = "none";
-    document.getElementById("outer-content-getReimByType").style.display = "none";
+    document.getElementById("outer-content-getReimById").style.display = "none";
     //document.getElementById("outer-content-getAllReims").style.display = "none";  
     document.getElementById("outer-content-updateReims").style.display = "block";  
 }
@@ -192,8 +180,7 @@ async function createTableForAllUsers() {
 } */
 async function createTableForReimByStatus() {
     const selectedStatus = document.getElementById('reim-status-selection');//this works
-    console.log(selectedStatus.value,"hi");// selected value is correct
-    //const payload = await fetch('http://localhost:3000/reimbursement/status/:statusId', {
+    //console.log(selectedStatus.value);// selected value is correct
     const payload = await fetch(`http://localhost:3000/reimbursement/status/${selectedStatus.value}`, {
         method: 'GET',
         headers: {
@@ -227,4 +214,49 @@ async function createTableForReimByStatus() {
         reimStatusTable.appendChild(row);
     }
     reimStatusTable.style.display='block';   
+}
+
+async function createTableForReimById() {
+    const userId = document.getElementById('reim-by-id-input');
+    console.log('following is the UserId', userId.value);// selected value is correct
+    const payload = await fetch(`http://localhost:3000/reimbursement/author/${userId.value}`, {
+    //const payload = await fetch(`http://localhost:3000/reimbursement/author/`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }       
+      })
+    
+    try {
+        const response = await payload.json();
+        const reimIdTable = document.getElementById('getReimbursementsByIdTable');
+    reimIdTable.innerHTML = `
+        <row id="th-row-of-reim-status">
+                <th class="reim-columns" >ID</th>
+                <th class="reim-columns" >Author</th>
+                <th class="reim-columns" >Amount</th>
+                <th class="reim-columns" >Date Submitted</th>
+                <th class="reim-columns" >Date Resolved</th>
+                <th class="reim-columns" >Description</th>
+                <th class="reim-columns" >Resolver</th>
+                <th class="reim-columns" >Status</th>
+                <th class="reim-columns" >Type</th>
+        </row>`;
+      console.log("Asbury Park");
+    for (var i = 0; i < response.length; i++) {
+        const row = document.createElement('row');
+        for(let c of Object.values(response[i]) ){
+            const td = document.createElement('td');
+            td.innerText = c;
+            td.className = 'reim-columns';
+            row.appendChild(td);
+        }
+        reimIdTable.appendChild(row);
+    }
+    reimIdTable.style.display='block';   
+}
+     catch {
+        alert("Not found")
+    }
+        console.log("helloo words");
 }

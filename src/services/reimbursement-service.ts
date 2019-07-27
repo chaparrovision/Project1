@@ -29,10 +29,10 @@ export async function getReimbursementByStatusId(StatusId: number): Promise<Reim
         console.log(result.rows);
     return  result.rows;
 }
-export async function getReimbursementByTypeId(TypeId: number): Promise<Reimbursement[]> {
+export async function getReimbursementByAuthor(Author: number): Promise<Reimbursement[]> {
     const result = await db.query(`SELECT reimbursementid, author, amount, dateSubmitted, 
         dateResolved, description, resolver, status, type
-        FROM reimbursements WHERE type = $1`, [TypeId]);
+        FROM reimbursements WHERE author = $1`, [Author]);
         console.log(result.rows);
     return result.rows;
 }

@@ -41,7 +41,7 @@
                 <!--<li class="endpoints" id="get-user-by-Id-btn">Get / Update User By Id</li>-->
                 <li class="endpoints" id="get-update-user-btn">Get / Update User By Id</li>
                 <li class="endpoints" id="get-reim-by-status-btn">Reimbursements By Status</li>
-                <li class="endpoints" id="get-reim-by-type-btn">Reimbursements By ID</li>
+                <li class="endpoints" id="get-reim-by-id-btn">Reimbursements By ID</li>
                 <!--<li class="endpoints" id="get-all-reims-btn">Get All Reimbursements</li> -->
                 <li class="endpoints" id="update-reims-btn">Update Reimbursements</li>
             </ul>
@@ -180,35 +180,24 @@
                 <hr>
                 <table class="tables" id="getReimbursementsByStatusTable"></table>
             </div>
-            <div class="outer-content" id="outer-content-getReimByType">
+            <div class="outer-content" id="outer-content-getReimById">
                 <div class="inner-content" id="inner-content-get-reim-by-type">
-                    <h2 class="content-headers" id="get-reim-by-type">Get Reimbursement Type</h2>
+                    <h2 class="content-headers" id="get-reim-by-type">Get Reimbursement By Id</h2>
                 </div>
                 <div class="content-divs" id="reim-by-type-div">
-                    <p class="responses-from_queries">Use the Dropdown Menu to Select Reimbursements By Type:
-                        <select>
-                            <option class="options" value="1">1 - Lodging</option>
-                            <option class="options" value="2">2 - Travel</option>
-                            <option class="options" value="3">3 - Food</option>
-                            <option class="options" value="4">4 - Other</option>
-                        </select>
-                        <button type="submit" class="submits" id="choosing-type-btn" 
-                            name="choosing-type-btn" value="">Submit Type
+                    <label class="labels" for="reim-by-id-input"><p class="responses-from_queries">
+                            For Reimbursement by ID, enter an ID:
+                        <input type="text" class="id-inputs" id="reim-by-id-input" />
+                        <button type="button" class="submits" id="choosing-reim-by-id-btn" 
+                            name="choosing-reim-by-id-btn" value="">Submit ID
                         </button>
-                    </p>
+                    </p></label>
                 </div>
                 <hr>
-                <div class="response-areas">
-                    <p class="responses-from_queries" id="reim-by-type-response">&nbsp;</p>
-                </div>
+                <table class="tables" id="getReimbursementsByIdTable"></table>
             </div>
                        
-            <!--<div class="outer-content" id="outer-content-getAllReims">
-                <div class="inner-content" id="inner-content-get-all-reims">
-                    <h2 class="content-headers" id="get-all-reims">Get All Reimbursements</h2>
-                </div>
-                <table class="tables" id="getAllReimbursementsTable"></table>
-            </div>-->
+
             <div class="outer-content" id="outer-content-updateReims">
                 <div class="inner-content" id="inner-content-update-reims">
                     <h2 class="content-headers" id="update-reims">Update Reimbursements</h2>
