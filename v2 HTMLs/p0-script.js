@@ -9,9 +9,11 @@ document.getElementById("create-new-reimb").addEventListener("click", toCreateNe
 document.getElementById("get-update-user-btn").addEventListener("click", toUpdateUser);
 document.getElementById("get-reim-by-status-btn").addEventListener("click", toGetReimByStatus);
 document.getElementById("get-reim-by-type-btn").addEventListener("click", toGetReimByType);
-document.getElementById("get-all-reims-btn").addEventListener("click", toGetAllReims);
+//document.getElementById("get-all-reims-btn").addEventListener("click", createTableForAllReimbursements);
 document.getElementById("update-reims-btn").addEventListener("click", toUpdateReims);
- 
+document.getElementById("choosing-status-btn").addEventListener("click", createTableForReimByStatus);
+
+
 
 //async function loginChecker(username,pswd) {
 async function loginChecker() {
@@ -54,7 +56,7 @@ function toGetEmployeeInfo() {
     document.getElementById("outer-content-updateUser").style.display = "none";
     document.getElementById("outer-content-getReimByStatus").style.display = "none";
     document.getElementById("outer-content-getReimByType").style.display = "none";
-    document.getElementById("outer-content-getAllReims").style.display = "none";
+    //document.getElementById("outer-content-getAllReims").style.display = "none";
     document.getElementById("outer-content-updateReims").style.display = "none";
     document.getElementById("outer-content-getAllUsers").style.display="none";
     document.getElementById("outer-content-getEmployeeInfo").style.display="block";
@@ -67,7 +69,7 @@ function toGetAllUsers() {
     document.getElementById("outer-content-updateUser").style.display = "none";
     document.getElementById("outer-content-getReimByStatus").style.display = "none";
     document.getElementById("outer-content-getReimByType").style.display = "none";
-    document.getElementById("outer-content-getAllReims").style.display = "none";
+   //document.getElementById("outer-content-getAllReims").style.display = "none";
     document.getElementById("outer-content-updateReims").style.display = "none";
     document.getElementById("outer-content-getAllUsers").style.display="block";
 }
@@ -78,7 +80,7 @@ function toCreateNewReimb() {
     document.getElementById("outer-content-updateUser").style.display = "none";
     document.getElementById("outer-content-getReimByStatus").style.display = "none";
     document.getElementById("outer-content-getReimByType").style.display = "none";
-    document.getElementById("outer-content-getAllReims").style.display = "none";
+    //document.getElementById("outer-content-getAllReims").style.display = "none";
     document.getElementById("outer-content-updateReims").style.display = "none";
     document.getElementById("outer-content-createNewReImbursement").style.display = "block";    
 }
@@ -101,7 +103,7 @@ function toUpdateUser() {
     document.getElementById("outer-content-createNewReImbursement").style.display = "none";
     document.getElementById("outer-content-getReimByStatus").style.display = "none";
     document.getElementById("outer-content-getReimByType").style.display = "none";
-    document.getElementById("outer-content-getAllReims").style.display = "none";
+    //document.getElementById("outer-content-getAllReims").style.display = "none";
     document.getElementById("outer-content-updateReims").style.display = "none";
     document.getElementById("outer-content-updateUser").style.display = "block";   
 }
@@ -112,7 +114,7 @@ function toGetReimByStatus() {
     document.getElementById("outer-content-createNewReImbursement").style.display = "none";
     document.getElementById("outer-content-updateUser").style.display = "none";
     document.getElementById("outer-content-getReimByType").style.display = "none";
-    document.getElementById("outer-content-getAllReims").style.display = "none";
+    //document.getElementById("outer-content-getAllReims").style.display = "none";
     document.getElementById("outer-content-updateReims").style.display = "none";
     document.getElementById("outer-content-getReimByStatus").style.display = "block";   
 }
@@ -123,11 +125,11 @@ function toGetReimByType() {
     document.getElementById("outer-content-createNewReImbursement").style.display = "none";
     document.getElementById("outer-content-updateUser").style.display = "none";
     document.getElementById("outer-content-getReimByStatus").style.display = "none";
-    document.getElementById("outer-content-getAllReims").style.display = "none";
+    //document.getElementById("outer-content-getAllReims").style.display = "none";
     document.getElementById("outer-content-updateReims").style.display = "none";
     document.getElementById("outer-content-getReimByType").style.display = "block";   
 }
-function toGetAllReims() {
+/*function toGetAllReims() {
     document.getElementById("indexContentDiv").style.display="none";
     document.getElementById("outer-content-getEmployeeInfo").style.display="none";
     document.getElementById("outer-content-getAllUsers").style.display="none";   
@@ -137,7 +139,7 @@ function toGetAllReims() {
     document.getElementById("outer-content-getReimByType").style.display = "none";
     document.getElementById("outer-content-updateReims").style.display = "none"; 
     document.getElementById("outer-content-getAllReims").style.display = "block";  
-}
+} */
 function toUpdateReims() {
     document.getElementById("indexContentDiv").style.display="none";
     document.getElementById("outer-content-getEmployeeInfo").style.display="none";
@@ -146,7 +148,7 @@ function toUpdateReims() {
     document.getElementById("outer-content-updateUser").style.display = "none";
     document.getElementById("outer-content-getReimByStatus").style.display = "none";
     document.getElementById("outer-content-getReimByType").style.display = "none";
-    document.getElementById("outer-content-getAllReims").style.display = "none";  
+    //document.getElementById("outer-content-getAllReims").style.display = "none";  
     document.getElementById("outer-content-updateReims").style.display = "block";  
 }
 // export default toMainBody;
@@ -159,7 +161,6 @@ async function createTableForAllUsers() {
         }       
       })
       const response = await payload.json();
-        console.log(response);
     const userTable = document.getElementById('getAllUsersTable');
     userTable.innerHTML = `
         <row id="th-row-of-all-users">
@@ -184,4 +185,46 @@ async function createTableForAllUsers() {
     toGetAllUsers();
 }
 
-        
+      
+/*function getStatusValue() {
+    const selectedStatus = document.getElementById('reim-status-selection');//this works
+    console.log(selectedStatus.value);// use the .value
+} */
+async function createTableForReimByStatus() {
+    const selectedStatus = document.getElementById('reim-status-selection');//this works
+    console.log(selectedStatus.value,"hi");// selected value is correct
+    //const payload = await fetch('http://localhost:3000/reimbursement/status/:statusId', {
+    const payload = await fetch(`http://localhost:3000/reimbursement/status/${selectedStatus.value}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }       
+      })
+    const response = await payload.json();
+        console.log(response);
+    const reimStatusTable = document.getElementById('getReimbursementsByStatusTable');
+    reimStatusTable.innerHTML = `
+        <row id="th-row-of-reim-status">
+                <th class="reim-columns" >ID</th>
+                <th class="reim-columns" >Author</th>
+                <th class="reim-columns" >Amount</th>
+                <th class="reim-columns" >Date Submitted</th>
+                <th class="reim-columns" >Date Resolved</th>
+                <th class="reim-columns" >Description</th>
+                <th class="reim-columns" >Resolver</th>
+                <th class="reim-columns" >Status</th>
+                <th class="reim-columns" >Type</th>
+        </row>`;
+      console.log("hello");
+    for (var i = 0; i < response.length; i++) {
+        const row = document.createElement('row');
+        for(let c of Object.values(response[i]) ){
+            const td = document.createElement('td');
+            td.innerText = c;
+            td.className = 'reim-columns';
+            row.appendChild(td);
+        }
+        reimStatusTable.appendChild(row);
+    }
+    reimStatusTable.style.display='block';   
+}

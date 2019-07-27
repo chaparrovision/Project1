@@ -41,8 +41,8 @@
                 <!--<li class="endpoints" id="get-user-by-Id-btn">Get / Update User By Id</li>-->
                 <li class="endpoints" id="get-update-user-btn">Get / Update User By Id</li>
                 <li class="endpoints" id="get-reim-by-status-btn">Reimbursements By Status</li>
-                <li class="endpoints" id="get-reim-by-type-btn">Reimbursements By Type</li>
-                <li class="endpoints" id="get-all-reims-btn">Get All Reimbursements</li>
+                <li class="endpoints" id="get-reim-by-type-btn">Reimbursements By ID</li>
+                <!--<li class="endpoints" id="get-all-reims-btn">Get All Reimbursements</li> -->
                 <li class="endpoints" id="update-reims-btn">Update Reimbursements</li>
             </ul>
         </nav>
@@ -95,13 +95,7 @@
                 <div class="inner-content" id="inner-content-get-all-users">
                     <h2 class="content-headers" id="get-all-users-hdr">All Users</h2>
                 </div>
-                <!--<div class='auto-fill-ULs' id='all-users-ul-div'>
-                    <ul class='all-users-ul' id=''>
-                    </ul>       
-                </div>-->
-                <table class="tables" id="getAllUsersTable">
-                    
-                </table>
+                <table class="tables" id="getAllUsersTable"></table>
             </div>
 
             <div class="outer-content" id="outer-content-updateUser">
@@ -171,22 +165,20 @@
                 <div class="inner-content" id="inner-content-get-reim-by-status">
                     <h2 class="content-headers" id="get-reim-by-status">Get Reimbursement By Status</h2>
                 </div>
-                <div class="content-divs" id="reim-by-status-div">
+                <form class="content-divs" id="reim-by-status-div">
                     <p class="responses-from_queries">Use the Dropdown Menu to Select Reimbursements By Status:
-                        <select>
+                        <select id="reim-status-selection">
                             <option class="options" value="1">1 - Pending</option>
                             <option class="options" value="2">2 - Approved</option>
                             <option class="options" value="3">3 - Denied</option>
                         </select>
-                        <button type="submit" class="submits" id="choosing-status-btn" 
+                        <button type="button" class="submits" id="choosing-status-btn" 
                             name="choosing-status-btn" value="">Submit Status
                         </button>
                     </p>
-                </div>
+                </form>
                 <hr>
-                <div class="response-areas">
-                    <p class="responses-from_queries" id="reim-by-status-response">&nbsp;</p>
-                </div>
+                <table class="tables" id="getReimbursementsByStatusTable"></table>
             </div>
             <div class="outer-content" id="outer-content-getReimByType">
                 <div class="inner-content" id="inner-content-get-reim-by-type">
@@ -210,13 +202,13 @@
                     <p class="responses-from_queries" id="reim-by-type-response">&nbsp;</p>
                 </div>
             </div>
-            
-            
-            <div class="outer-content" id="outer-content-getAllReims">
+                       
+            <!--<div class="outer-content" id="outer-content-getAllReims">
                 <div class="inner-content" id="inner-content-get-all-reims">
                     <h2 class="content-headers" id="get-all-reims">Get All Reimbursements</h2>
                 </div>
-            </div>
+                <table class="tables" id="getAllReimbursementsTable"></table>
+            </div>-->
             <div class="outer-content" id="outer-content-updateReims">
                 <div class="inner-content" id="inner-content-update-reims">
                     <h2 class="content-headers" id="update-reims">Update Reimbursements</h2>

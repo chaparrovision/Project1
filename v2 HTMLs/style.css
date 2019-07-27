@@ -156,3 +156,11 @@ nav {
     margin-left: 0;
     padding-left: 0;
 }
+.reim-columns {
+    width: 8%;
+    margin: 0;
+    padding: 0;
+}
+.reim-columns > td {
+    width: 4%;
+}
