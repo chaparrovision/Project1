@@ -17,7 +17,7 @@ import db from '../util/pg-connector';
  
 //GETUSER FUNCTION FROM USERROUTER  
 export async function getUsers() {
-    const queryString = `select userid, username, firstname, lastname, role from users`;
+    const queryString = `select userid, username, firstname, lastname, email, role from users`;
     const userResults = await db.query(queryString);  
     //console.log('rows printed' + userResults)
     // checking if finance manager by searching for role=3

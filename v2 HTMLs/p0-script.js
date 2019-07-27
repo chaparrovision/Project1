@@ -2,7 +2,8 @@
 //document.getElementById("loginBtn").addEventListener("click", toMainBody);
 document.getElementById("loginBtn").addEventListener("click", loginChecker);
 document.getElementById("employee-info-btn").addEventListener("click", toGetEmployeeInfo);
-document.getElementById("get-all-users-btn").addEventListener("click", toGetAllUsers);
+document.getElementById("get-all-users-btn").addEventListener("click", createTableForAllUsers);
+//document.getElementById("get-all-users-btn").addEventListener("click", toGetAllUsers);
 document.getElementById("create-new-reimb").addEventListener("click", toCreateNewReimb);
 //document.getElementById("get-user-by-Id-btn").addEventListener("click", toGetUserById);
 document.getElementById("get-update-user-btn").addEventListener("click", toUpdateUser);
@@ -149,3 +150,38 @@ function toUpdateReims() {
     document.getElementById("outer-content-updateReims").style.display = "block";  
 }
 // export default toMainBody;
+
+async function createTableForAllUsers() {
+    const payload = await fetch('http://localhost:3000/users', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }       
+      })
+      const response = await payload.json();
+        console.log(response);
+    const userTable = document.getElementById('getAllUsersTable');
+    userTable.innerHTML = `
+        <row id="th-row-of-all-users">
+                <th class="user-columns" >User ID</th>
+                <th class="user-columns" >Username</th>
+                <th class="user-columns" >First Name</th>
+                <th class="user-columns" >Last Name</th>
+                <th class="user-columns" >Last Name</th>
+                <th class="user-columns" >Role</th>
+        </row>`;
+    for (var i = 0; i < response.length; i++) {
+        const row = document.createElement('row');
+        for(let c of Object.values(response[i]) ){
+            const td = document.createElement('td');
+            td.innerText = c;
+            td.className = 'user-columns';
+            row.appendChild(td);
+        }
+        userTable.appendChild(row);
+    }
+    userTable.style.display='block';
+    toGetAllUsers();
+}
+
+        

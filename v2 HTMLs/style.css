@@ -150,3 +150,9 @@ nav {
     width:50%;
     margin-bottom: 14px;
 }
+.user-columns {
+    width:20%;
+    border-right: 1px solid silver;
+    margin-left: 0;
+    padding-left: 0;
+}
