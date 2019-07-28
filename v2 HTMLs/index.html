@@ -73,7 +73,8 @@
                             <option class="options" value="4">4 - Other</option>
                         </select><br><br>
                         <li><label class="labels" for="reimbursement-amt">Enter Amount of Reimbursement: &nbsp;</label><br>
-                            <input type="text" class="inputs" id="reimbursement-amt" name="reimbursement-amt"/>
+                            <input type="text" class="inputs" id="reimbursement-amt" onfocus="this.value=''"
+                            name="reimbursement-amt"/>
                         </li><br>
                         <li><label class="labels" for="reimbursement-date">Today's Date: &nbsp;</label><br>
                             <input type="date" class="inputs" id="reimbursement-date" name="reimbursement-date"/>
@@ -81,7 +82,8 @@
                         <li id="createImTextarea">
                             <label class="labels" for="reimbursement-text">Description</label><br>
                             <textarea class="textareas" name="reimbursement-text" id="reimbursement-text"
-                                placeholder="Enter a description here" maxlength="50"; rows="2" cols="30">
+                                placeholder="Enter a description here" onfocus="this.value=''"
+                                maxlength="50"; rows="2" cols="30">
                             </textarea>
                             <button class="submits" type="button" id="submitNewReimBtn">SUBMIT</button>
                             <button class="submits" type="button" id="newReimBtn">New Reimbursement</button>
@@ -230,7 +232,7 @@
                                     name="update-amount-input" value="" size="24" />
                                 </td>
                             </tr>
-                            <tr>
+                            <!--<tr>
                                 <td>
                                     <label class="labels" for="update-submit-date-input">Date Submitted:   
                                 </td>
@@ -238,7 +240,7 @@
                                     <input type="date" class="inputs" id="update-submit-date-input"
                                     name="update-submit-date-input" value="" size="24" />
                                 </td>
-                            </tr>
+                            </tr>-->
                             <tr>
                                 <td>
                                     <label class="labels" for="update-resolved-date-input">Date Resolved:   

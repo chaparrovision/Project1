@@ -65,4 +65,24 @@ reimbursementRouter.delete('/:id',
         response.sendStatus(200);
     });
 
+
+//reimbursementRouter.get('/', (request: Request, response: Response) => {
+    reimbursementRouter.get('/:reimbursementId',
+    async (request: Request, response: Response) => {
+        if (request.session.role <= 1)  {
+            response.sendStatus(403);
+        } else {
+            const id = parseInt(request.params.reimbursementId);
+            const item: Reimbursement = await reimbursementService.getReimbursementByReimbursementId(id);
+            if (item.reimbursementId) {
+                response.status(200).json(item);
+            } else {
+                response.sendStatus(404);
+            }
+        }
+    });    
+
+
+
+
 export default reimbursementRouter;

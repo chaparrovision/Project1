@@ -53,3 +53,12 @@ export async function patchCoalesce(patch: Reimbursement) {
         return result.rows[0];
     }
 }
+
+export async function getReimbursementByReimbursementId(ReimbursentId: number): Promise<Reimbursement> {
+    const result = await db.query(`SELECT reimbursementid, author, amount, dateSubmitted, 
+        dateResolved, description, resolver, status, type
+        FROM reimbursements WHERE reimbursementid = $1`, [ReimbursentId]);
+        console.log(result.rows);
+        const reimbursement = new Reimbursement(result.rows[0]);
+    return  reimbursement;
+}

@@ -12,6 +12,7 @@ document.getElementById("update-reims-btn").addEventListener("click", toUpdateRe
 document.getElementById("submitNewReimBtn").addEventListener("click", createNewReimbursementInfo);
 // Below begins the Update User seq., by getting user by id first
 document.getElementById("get-user-4-update-btn").addEventListener("click", getUserByIdForUpdate);
+document.getElementById("get-reim-4-update-btn").addEventListener("click", getReimbursementByIdForUpdate);
 
 
 
@@ -276,7 +277,6 @@ async function createNewReimbursementInfo() {
 //update user code begins here:
 async function getUserByIdForUpdate() {
     const userId = document.getElementById('id4update').value; //successfully grabs the user input id number
-    //console.log(userId, 'is this kosh?')
     const payload = await fetch('http://localhost:3000/users', {
         method: 'GET',
         headers: {
@@ -284,11 +284,9 @@ async function getUserByIdForUpdate() {
         }       
       })
       const response = await payload.json();
-    //parseInt(userId);
     newObject = Object.values(response[userId - 1]);  //successfully grabs called user object from response
     console.log('is this new object?', newObject);
     // the below successfully grabs the user object username
-    //let oldUsername = Object.values(response[userId - 1])
     let oldUsername = newObject[1];
     let oldFirstname = newObject[2];
     let oldLastname = newObject[3];
@@ -300,5 +298,36 @@ async function getUserByIdForUpdate() {
     document.getElementById('update-lastname-input').value = oldLastname;
     document.getElementById('update-email-input').value = oldEmail;
     document.getElementById('update-role-input').value = oldRole;
+}
+
+// Below begins the get Reimbursement by ID for Update Reimbursement
+async function getReimbursementByIdForUpdate() {
+    const reimbursementId = document.getElementById('id4updateReim').value; //successfully grabs the user input id number
+    //console.log(reimbursementId, 'is this reimbursementId?') //working so far
+    const payload = await fetch(`http://localhost:3000/reimbursement/${reimbursementId}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }       
+    })
+    const response = await payload.json();
+    console.log('is this the reimbursement payload', response);
+    newObject = Object.values(response); //grabs wrong objects, not by ReimID.
+    //console.log('is this new object?', newObject);
+    // the below successfully grabs the user object username
+    //let oldUsername = Object.values(response[userId - 1])
+    let oldAuthor = newObject[1];
+    let oldAmount = newObject[2];
+    let oldDescription = newObject[5];
+    let oldResolver = newObject[6];
+    let oldStatus = newObject[7];
+    let oldType = newObject[8];
+
+    document.getElementById('update-author-input').value = oldAuthor;//populates the input box!
+    document.getElementById('update-amount-input').value = oldAmount;
+    document.getElementById('update-description-input').value = oldDescription;
+    document.getElementById('update-resolver-input').value = oldResolver;
+    document.getElementById('update-status-input').value = oldStatus;
+    document.getElementById('update-type-input').value = oldType;
 
 }
