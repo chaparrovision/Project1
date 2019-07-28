@@ -10,6 +10,7 @@ document.getElementById("choosing-status-btn").addEventListener("click", createT
 document.getElementById("get-reim-by-id-btn").addEventListener("click", toGetReimById);
 document.getElementById("choosing-reim-by-id-btn").addEventListener("click", createTableForReimById);
 document.getElementById("update-reims-btn").addEventListener("click", toUpdateReims);
+document.getElementById("submitNewReimBtn").addEventListener("click", createNewReimbursementInfo);
 
 
 
@@ -179,8 +180,8 @@ async function createTableForAllUsers() {
     console.log(selectedStatus.value);// use the .value
 } */
 async function createTableForReimByStatus() {
-    const selectedStatus = document.getElementById('reim-status-selection');//this works
-    //console.log(selectedStatus.value);// selected value is correct
+    const selectedStatus = document.getElementById('reim-status-selection');
+    //selectedStatus.value) "grabs selected value from the dropdown menu
     const payload = await fetch(`http://localhost:3000/reimbursement/status/${selectedStatus.value}`, {
         method: 'GET',
         headers: {
@@ -220,7 +221,6 @@ async function createTableForReimById() {
     const userId = document.getElementById('reim-by-id-input');
     console.log('following is the UserId', userId.value);// selected value is correct
     const payload = await fetch(`http://localhost:3000/reimbursement/author/${userId.value}`, {
-    //const payload = await fetch(`http://localhost:3000/reimbursement/author/`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'
@@ -259,4 +259,43 @@ async function createTableForReimById() {
         alert("Not found")
     }
         console.log("helloo words");
+}
+
+
+async function createNewReimbursementInfo() {
+   const reimType = document.getElementById('reim-type-selection').value; //grabbing values input from user
+    const amount = parseInt(document.getElementById('reimbursement-amt').value) ;
+    const newReimDate = document.getElementById('reimbursement-date').value;
+    const description = document.getElementById('reimbursement-text').value;
+    // console.log(reimType); variables successfully appear in console.
+    const payload = await fetch('http://localhost:3000/reimbursement', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+//Below, assigning new values entered by the user on the web page      
+      body: JSON.stringify({
+        amount: amount,
+        dateSubmitted : newReimDate,
+        description : description,
+        status: 1,
+        type: reimType
+        })
+    }) 
+    const response = await payload.json();
+    const list = document.createElement('ul');  //creating a ul to populate with li items below
+    list.className = 'new-reim-ul'; // assigning the ul a class for styling.
+    // To out result, will loop thru the object with key/value pairs
+        for(i = 0; i < Object.keys(response).length; i++) {
+            if( Object.values(response)[i] ) {
+                const prop = document.createElement('li');
+                prop.className = 'new-reim-li';
+                prop.innerText=`${Object.keys(response)[i]} :${Object.values(response)[i]}`;
+                list.appendChild(prop);
+            }
+        }
+        document.getElementById('submit-new-reim-response').innerHTML = list.innerHTML;
+        document.getElementById('submit-new-reim-response').style.visibility = "visible";
+        document.getElementById('NewReimBtn').style.visibility = "visible";
+        document.getElementById('submitNewReimBtn').style.visibility = "hidden";
 }

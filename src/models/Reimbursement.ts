@@ -3,7 +3,7 @@ that an employee would submit */
 export default class Reimbursement {
     reimbursementId: number; // primary key
     author: number // not null, unique 
-    amount: number // not null
+    amount: string // not null
     dateSubmitted: number // not null
     dateResolved: number // not null
     description: string // not null

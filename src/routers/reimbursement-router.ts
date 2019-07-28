@@ -45,22 +45,6 @@ reimbursementRouter.post('/', async(req: Request, response: Response) => {
         }
     });
 
-// reimbursementRouter.post('',
-//     (request: Request, response: Response) => {
-//         const reimbursement = new Reimbursement(request.body);
-
-//         reimbursementService.createReimbursement(reimbursement)
-//             // This handler receives the row data
-//             // from the service method
-//             .then((rows) => {
-//                 if (rows.length > 0) {
-//                     response.status(201).json(rows[0]);
-//                 } else {
-//                     response.sendStatus(400);
-//                 }
-//             });
-//     });
-
 
 reimbursementRouter.patch('',
     async (request: Request, response: Response) => {

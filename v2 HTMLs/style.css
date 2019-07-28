@@ -117,7 +117,7 @@ nav {
 .outer-content {
     display: none;
 }
-#submitNewReim {
+#submitNewReimBtn {
     margin-left:70px;
     margin-bottom: 30px;
     padding: 8px 24px;
@@ -164,3 +164,15 @@ nav {
 .reim-columns > td {
     width: 4%;
 }
+#submit-new-reim-response {
+    border: 1px solid silver;
+    background: white;
+    max-width: 400px;
+    visibility: hidden;
+}
+.new-reim-li {
+    list-style-type: none;
+    margin-left:20px;
+    padding:2px;
+}
+#NewReimBtn {visibility: hidden}

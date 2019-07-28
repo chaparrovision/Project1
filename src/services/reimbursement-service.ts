@@ -15,7 +15,7 @@ export async function createReimbursement(reimbursement: Reimbursement):
         description, resolver, status, type)
     VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING reimbursementid, author, amount, datesubmitted, 
         dateresolved, description, resolver, status, type`,
-        [reimbursement.author, reimbursement.amount,reimbursement.dateSubmitted, 
+        [reimbursement.author, parseInt(reimbursement.amount),reimbursement.dateSubmitted, 
             reimbursement.dateResolved, reimbursement.description, reimbursement.resolver,
             reimbursement.status,reimbursement.type]);
     const newReimbursement:Reimbursement = new Reimbursement(result.rows[0]);
