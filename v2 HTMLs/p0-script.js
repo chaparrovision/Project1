@@ -1,5 +1,4 @@
 
-//document.getElementById("loginBtn").addEventListener("click", toMainBody);
 document.getElementById("loginBtn").addEventListener("click", loginChecker);
 document.getElementById("employee-info-btn").addEventListener("click", toGetEmployeeInfo);
 document.getElementById("get-all-users-btn").addEventListener("click", createTableForAllUsers);
@@ -11,15 +10,15 @@ document.getElementById("get-reim-by-id-btn").addEventListener("click", toGetRei
 document.getElementById("choosing-reim-by-id-btn").addEventListener("click", createTableForReimById);
 document.getElementById("update-reims-btn").addEventListener("click", toUpdateReims);
 document.getElementById("submitNewReimBtn").addEventListener("click", createNewReimbursementInfo);
+// Below begins the Update User seq., by getting user by id first
+document.getElementById("get-user-4-update-btn").addEventListener("click", getUserByIdForUpdate);
 
 
 
-
-//async function loginChecker(username,pswd) {
 async function loginChecker() {
     var a = document.getElementById('usernameInput').value;
     var b = document.getElementById('passwordInput').value;
-    console.log('username is', a, "and pswd is", b); // this works
+    console.log('username is', a, "and pswd is", b); 
     const payload = await fetch('http://localhost:3000/login', {
       method: 'POST',
       headers: {
@@ -32,7 +31,6 @@ async function loginChecker() {
         document.getElementById('wrongLogin').style.display = 'block';
     }  else {
         const response = await payload.json();
-        //console.log(response);
         document.getElementById('ret-user-id').innerText = response.userInfo.userName;
         document.getElementById('ret-first-name').innerText = response.userInfo.firstName;
         document.getElementById('ret-last-name').innerText = response.userInfo.lastName;
@@ -52,11 +50,9 @@ function toMainBody() {
 function toGetEmployeeInfo() {
     document.getElementById("indexContentDiv").style.display="none";   
     document.getElementById("outer-content-createNewReImbursement").style.display = "none";
-   //document.getElementById("outer-content-getUserById").style.display = "none";
     document.getElementById("outer-content-updateUser").style.display = "none";
     document.getElementById("outer-content-getReimByStatus").style.display = "none";
     document.getElementById("outer-content-getReimById").style.display = "none";
-    //document.getElementById("outer-content-getAllReims").style.display = "none";
     document.getElementById("outer-content-updateReims").style.display = "none";
     document.getElementById("outer-content-getAllUsers").style.display="none";
     document.getElementById("outer-content-getEmployeeInfo").style.display="block";
@@ -69,7 +65,6 @@ function toGetAllUsers() {
     document.getElementById("outer-content-updateUser").style.display = "none";
     document.getElementById("outer-content-getReimByStatus").style.display = "none";
     document.getElementById("outer-content-getReimById").style.display = "none";
-   //document.getElementById("outer-content-getAllReims").style.display = "none";
     document.getElementById("outer-content-updateReims").style.display = "none";
     document.getElementById("outer-content-getAllUsers").style.display="block";
 }
@@ -80,7 +75,6 @@ function toCreateNewReimb() {
     document.getElementById("outer-content-updateUser").style.display = "none";
     document.getElementById("outer-content-getReimByStatus").style.display = "none";
     document.getElementById("outer-content-getReimById").style.display = "none";
-    //document.getElementById("outer-content-getAllReims").style.display = "none";
     document.getElementById("outer-content-updateReims").style.display = "none";
     document.getElementById("outer-content-createNewReImbursement").style.display = "block";    
 }
@@ -92,7 +86,6 @@ function toUpdateUser() {
     document.getElementById("outer-content-createNewReImbursement").style.display = "none";
     document.getElementById("outer-content-getReimByStatus").style.display = "none";
     document.getElementById("outer-content-getReimById").style.display = "none";
-    //document.getElementById("outer-content-getAllReims").style.display = "none";
     document.getElementById("outer-content-updateReims").style.display = "none";
     document.getElementById("outer-content-updateUser").style.display = "block";   
 }
@@ -103,7 +96,6 @@ function toGetReimByStatus() {
     document.getElementById("outer-content-createNewReImbursement").style.display = "none";
     document.getElementById("outer-content-updateUser").style.display = "none";
     document.getElementById("outer-content-getReimById").style.display = "none";
-    //document.getElementById("outer-content-getAllReims").style.display = "none";
     document.getElementById("outer-content-updateReims").style.display = "none";
     document.getElementById("outer-content-getReimByStatus").style.display = "block";   
 }
@@ -114,21 +106,10 @@ function toGetReimById() {
     document.getElementById("outer-content-createNewReImbursement").style.display = "none";
     document.getElementById("outer-content-updateUser").style.display = "none";
     document.getElementById("outer-content-getReimByStatus").style.display = "none";
-    //document.getElementById("outer-content-getAllReims").style.display = "none";
     document.getElementById("outer-content-updateReims").style.display = "none";
     document.getElementById("outer-content-getReimById").style.display = "block";   
 }
-/*function toGetAllReims() {
-    document.getElementById("indexContentDiv").style.display="none";
-    document.getElementById("outer-content-getEmployeeInfo").style.display="none";
-    document.getElementById("outer-content-getAllUsers").style.display="none";   
-    document.getElementById("outer-content-createNewReImbursement").style.display = "none";
-    document.getElementById("outer-content-updateUser").style.display = "none";
-    document.getElementById("outer-content-getReimByStatus").style.display = "none";
-    document.getElementById("outer-content-getReimByType").style.display = "none";
-    document.getElementById("outer-content-updateReims").style.display = "none"; 
-    document.getElementById("outer-content-getAllReims").style.display = "block";  
-} */
+
 function toUpdateReims() {
     document.getElementById("indexContentDiv").style.display="none";
     document.getElementById("outer-content-getEmployeeInfo").style.display="none";
@@ -136,11 +117,9 @@ function toUpdateReims() {
     document.getElementById("outer-content-createNewReImbursement").style.display = "none";
     document.getElementById("outer-content-updateUser").style.display = "none";
     document.getElementById("outer-content-getReimByStatus").style.display = "none";
-    document.getElementById("outer-content-getReimById").style.display = "none";
-    //document.getElementById("outer-content-getAllReims").style.display = "none";  
+    document.getElementById("outer-content-getReimById").style.display = "none";  
     document.getElementById("outer-content-updateReims").style.display = "block";  
 }
-// export default toMainBody;
 
 async function createTableForAllUsers() {
     const payload = await fetch('http://localhost:3000/users', {
@@ -151,6 +130,7 @@ async function createTableForAllUsers() {
       })
       const response = await payload.json();
     const userTable = document.getElementById('getAllUsersTable');
+    //Below, creating table headers dynamically
     userTable.innerHTML = `
         <row id="th-row-of-all-users">
                 <th class="user-columns" >User ID</th>
@@ -160,6 +140,7 @@ async function createTableForAllUsers() {
                 <th class="user-columns" >Last Name</th>
                 <th class="user-columns" >Role</th>
         </row>`;
+        // loop thru the response to create rows, then 2 lines down, create the tds.
     for (var i = 0; i < response.length; i++) {
         const row = document.createElement('row');
         for(let c of Object.values(response[i]) ){
@@ -174,11 +155,6 @@ async function createTableForAllUsers() {
     toGetAllUsers();
 }
 
-      
-/*function getStatusValue() {
-    const selectedStatus = document.getElementById('reim-status-selection');//this works
-    console.log(selectedStatus.value);// use the .value
-} */
 async function createTableForReimByStatus() {
     const selectedStatus = document.getElementById('reim-status-selection');
     //selectedStatus.value) "grabs selected value from the dropdown menu
@@ -242,7 +218,7 @@ async function createTableForReimById() {
                 <th class="reim-columns" >Status</th>
                 <th class="reim-columns" >Type</th>
         </row>`;
-      console.log("Asbury Park");
+
     for (var i = 0; i < response.length; i++) {
         const row = document.createElement('row');
         for(let c of Object.values(response[i]) ){
@@ -258,16 +234,13 @@ async function createTableForReimById() {
      catch {
         alert("Not found")
     }
-        console.log("helloo words");
 }
-
 
 async function createNewReimbursementInfo() {
    const reimType = document.getElementById('reim-type-selection').value; //grabbing values input from user
     const amount = parseInt(document.getElementById('reimbursement-amt').value) ;
     const newReimDate = document.getElementById('reimbursement-date').value;
     const description = document.getElementById('reimbursement-text').value;
-    // console.log(reimType); variables successfully appear in console.
     const payload = await fetch('http://localhost:3000/reimbursement', {
       method: 'POST',
       headers: {
@@ -297,5 +270,35 @@ async function createNewReimbursementInfo() {
         document.getElementById('submit-new-reim-response').innerHTML = list.innerHTML;
         document.getElementById('submit-new-reim-response').style.visibility = "visible";
         document.getElementById('NewReimBtn').style.visibility = "visible";
-        document.getElementById('submitNewReimBtn').style.visibility = "hidden";
+        document.getElementById('submitNewReimBtn').style.visibility = "hidden";        
+}
+
+//update user code begins here:
+async function getUserByIdForUpdate() {
+    const userId = document.getElementById('id4update').value; //successfully grabs the user input id number
+    //console.log(userId, 'is this kosh?')
+    const payload = await fetch('http://localhost:3000/users', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }       
+      })
+      const response = await payload.json();
+    //parseInt(userId);
+    newObject = Object.values(response[userId - 1]);  //successfully grabs called user object from response
+    console.log('is this new object?', newObject);
+    // the below successfully grabs the user object username
+    //let oldUsername = Object.values(response[userId - 1])
+    let oldUsername = newObject[1];
+    let oldFirstname = newObject[2];
+    let oldLastname = newObject[3];
+    let oldEmail = newObject[4];
+    let oldRole = newObject[5];
+
+    document.getElementById('update-username-input').value = oldUsername;//populates the input box!
+    document.getElementById('update-firstname-input').value = oldFirstname;
+    document.getElementById('update-lastname-input').value = oldLastname;
+    document.getElementById('update-email-input').value = oldEmail;
+    document.getElementById('update-role-input').value = oldRole;
+
 }

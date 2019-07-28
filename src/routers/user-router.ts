@@ -21,10 +21,8 @@ userRouter.get('/', async (request: Request, response: Response) => {
         const returnedValue = await userService.getUsers();
         console.log(request.session);      
         //console.log("Hi there!"); //trying to isolate the role value
-        response.json(returnedValue); 
-    
-    }
-   
+        response.json(returnedValue);    
+    }   
 });
    
 userRouter.get('/:userId', async (request: Request, response: Response) => {
