@@ -301,6 +301,8 @@ async function getUserByIdForUpdate() {
     document.getElementById('update-lastname-input').value = oldLastname;
     document.getElementById('update-email-input').value = oldEmail;
     document.getElementById('update-role-input').value = oldRole;
+    document.getElementById('after-Success-User-Update-info').innerText = ' ';
+
 }
 
 // Below begins the get Reimbursement by ID for Update Reimbursement
@@ -330,7 +332,7 @@ async function getReimbursementByIdForUpdate() {
     document.getElementById('update-resolver-input').value = oldResolver;
     document.getElementById('update-status-input').value = oldStatus;
     document.getElementById('update-type-input').value = oldType;
-
+    document.getElementById('reim-confirmed').innerText = ' ';
 }
 
 // Update Reimbursement begins here:
@@ -381,6 +383,8 @@ async function submitReimbursementUpdate() {
     document.getElementById('update-status-input').value = empty;
     document.getElementById('update-type-input').value = empty;
     alert("Update Submitted Successfully!");
+    document.getElementById('reim-confirmed').innerText='Update Successful. To update another reimbursement, input a Reimbursement Id at the top of this page.';
+    document.getElementById('reim-confirmed').style.visibility = 'visible';
 }
 
 
@@ -392,6 +396,7 @@ async function submitUserUpdate() {
     const lastname = document.getElementById('update-lastname-input').value; 
     const email = document.getElementById('update-email-input').value; 
     const role = document.getElementById('update-role-input').value;
+    const empty = " "; // used to clear inputs after successful update.
     
     //console.log(reimbursementId, 'is this reimbursementId?') //working so far
     const payload = await fetch(`http://localhost:3000/users`, {
@@ -424,11 +429,14 @@ async function submitUserUpdate() {
     document.getElementById('update-lastname-input').value = oldLastname;
     document.getElementById('update-email-input').value = oldEmail;
     document.getElementById('update-role-input').value = oldRole; */
-    const empty = " ";
+    
     document.getElementById('update-username-input').value = empty;//populates the input box!
     document.getElementById('update-firstname-input').value = empty;
     document.getElementById('update-lastname-input').value = empty;
     document.getElementById('update-email-input').value = empty;
     document.getElementById('update-role-input').value = empty;
+    document.getElementById('id4update').value = empty;
     alert("Update Submitted Successfully!");
+    document.getElementById('after-Success-User-Update-info').innerText='Update Successful. To update another user, input a UserId at the top of this page.';
+    document.getElementById('after-Success-User-Update-info').style.visibility = 'visible';
 }
