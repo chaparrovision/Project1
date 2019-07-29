@@ -1,15 +1,15 @@
 /*The Reimbursement model is used to represent a single reimbursement 
 that an employee would submit */
 export default class Reimbursement {
-    reimbursementId: number; // primary key
-    author: number // not null, unique 
+    reimbursementId: string; // primary key
+    author: string // not null, unique 
     amount: string // not null
-    dateSubmitted: number // not null
-    dateResolved: number // not null
+    dateSubmitted: string // not null
+    dateResolved: string // not null
     description: string // not null
-    resolver: number // not null
-    status: number // not null
-    type: number // not null
+    resolver: string // not null
+    status: string // not null
+    type: string // not null
     
     constructor(obj) {
         if (!obj) {

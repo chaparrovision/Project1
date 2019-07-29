@@ -13,6 +13,7 @@ document.getElementById("submitNewReimBtn").addEventListener("click", createNewR
 // Below begins the Update User seq., by getting user by id first
 document.getElementById("get-user-4-update-btn").addEventListener("click", getUserByIdForUpdate);
 document.getElementById("get-reim-4-update-btn").addEventListener("click", getReimbursementByIdForUpdate);
+document.getElementById("submit-update-reim-btn").addEventListener("click", submitReimbursementUpdate);
 
 
 
@@ -270,8 +271,9 @@ async function createNewReimbursementInfo() {
         }
         document.getElementById('submit-new-reim-response').innerHTML = list.innerHTML;
         document.getElementById('submit-new-reim-response').style.visibility = "visible";
-        document.getElementById('NewReimBtn').style.visibility = "visible";
-        document.getElementById('submitNewReimBtn').style.visibility = "hidden";        
+        document.getElementById('submitNewReimBtn').style.visibility = "hidden"; 
+        document.getElementById('newReimBtn').style.visibility = "visible";
+               
 }
 
 //update user code begins here:
@@ -312,10 +314,8 @@ async function getReimbursementByIdForUpdate() {
     })
     const response = await payload.json();
     console.log('is this the reimbursement payload', response);
-    newObject = Object.values(response); //grabs wrong objects, not by ReimID.
-    //console.log('is this new object?', newObject);
-    // the below successfully grabs the user object username
-    //let oldUsername = Object.values(response[userId - 1])
+    newObject = Object.values(response); //grabs correct object.
+    
     let oldAuthor = newObject[1];
     let oldAmount = newObject[2];
     let oldDescription = newObject[5];
@@ -330,4 +330,54 @@ async function getReimbursementByIdForUpdate() {
     document.getElementById('update-status-input').value = oldStatus;
     document.getElementById('update-type-input').value = oldType;
 
+}
+
+//
+async function submitReimbursementUpdate() {
+    const reimbursementId = document.getElementById('id4updateReim').value; 
+    const reimbursementAuthor = document.getElementById('update-author-input').value; 
+    const reimbursementAmount = document.getElementById('update-amount-input').value; 
+    const reimbursementDateResolved = document.getElementById('update-resolved-date-input').value; 
+    const reimbursementDescription = document.getElementById('update-description-input').value; 
+    const reimbursementResolver = document.getElementById('update-resolver-input').value; 
+    const reimbursementStatus = document.getElementById('update-status-input').value; 
+    const reimbursementType = document.getElementById('update-type-input').value;
+    
+    //console.log(reimbursementId, 'is this reimbursementId?') //working so far
+    const payload = await fetch(`http://localhost:3000/reimbursement`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body : JSON.stringify({           
+                reimbursementId: reimbursementId,
+                author: reimbursementAuthor,
+                amount: reimbursementAmount,
+                dateResolved: reimbursementDateResolved,
+                description: reimbursementDescription,
+                resolver: reimbursementResolver,
+                status: reimbursementStatus,
+                type: reimbursementType
+            })               
+    })
+    const response = await payload.json();
+    
+    console.log('is this the reimbursement payload', response);
+    newObject = Object.values(response); //grabs correct object.
+    
+    let oldAuthor = newObject[1];
+    let oldAmount = newObject[2];
+    let oldDescription = newObject[5];
+    let oldResolver = newObject[6];
+    let oldStatus = newObject[7];
+    let oldType = newObject[8];
+
+    document.getElementById('update-author-input').value = oldAuthor;//populates the input box!
+    document.getElementById('update-amount-input').value = oldAmount;
+    document.getElementById('update-resolved-date-input').value = oldAmount;
+    document.getElementById('update-description-input').value = oldDescription;
+    document.getElementById('update-resolver-input').value = oldResolver;
+    document.getElementById('update-status-input').value = oldStatus;
+    document.getElementById('update-type-input').value = oldType;
+    alert("Update Submitted Successfully!");
 }

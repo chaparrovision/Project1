@@ -43,11 +43,12 @@ export async function patchCoalesce(patch: Reimbursement) {
     dateresolved = COALESCE($4, dateresolved), description = COALESCE($5, description),\
      resolver = COALESCE($6, resolver), status = COALESCE($7, status), type = COALESCE($8, type)  \
      WHERE reimbursementid = $9 \
-    RETURNING author, amount, datesubmitted, dateresolved, description, resolver, status, type;`,
-        [patch.author, patch.amount, patch.dateSubmitted, patch.dateResolved, patch.description,
-             patch.resolver, patch.status, patch.type, patch.reimbursementId]);
+    RETURNING reimbursementid, author, amount, datesubmitted, dateresolved, description, resolver, status, type;`,
+        [parseInt(patch.author), parseInt(patch.amount), patch.dateSubmitted, patch.dateResolved, patch.description,
+             parseInt(patch.resolver), parseInt(patch.status), parseInt(patch.type), parseInt(patch.reimbursementId)]);
 
     if (result.rowCount === 0) {
+        return undefined;
         // throw error, 404
     } else {
         return result.rows[0];

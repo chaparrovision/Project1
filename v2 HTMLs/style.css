@@ -175,4 +175,9 @@ nav {
     margin-left:20px;
     padding:2px;
 }
-#NewReimBtn {visibility: hidden}
+#newReimBtn {visibility: hidden;}
+.confirmation-ps {
+   color: green;
+   margin:20px;
+   visibility: hidden 
+}

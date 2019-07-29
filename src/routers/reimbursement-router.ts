@@ -51,12 +51,13 @@ reimbursementRouter.patch('',
         const patch: Reimbursement = request.body;
 
         // const patchedInv: Inventory = await inventoryService.patchInventory(patch);
-        const patchedInv: Reimbursement = await reimbursementService.patchCoalesce(patch);       
-        if (patchedInv.reimbursementId) {
+        const patchedInv: Reimbursement = await reimbursementService.patchCoalesce(patch); 
+        console.log('string hello', patchedInv);     
+        if (patchedInv) {
             response.json(patchedInv);
         } else {
         }
-        response.sendStatus(200);
+        //response.sendStatus(200);
     });
 
 reimbursementRouter.delete('/:id',

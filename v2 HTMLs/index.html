@@ -41,7 +41,7 @@
                 <!--<li class="endpoints" id="get-user-by-Id-btn">Get / Update User By Id</li>-->
                 <li class="endpoints" id="get-update-user-btn">Get / Update User By Id</li>
                 <li class="endpoints" id="get-reim-by-status-btn">Reimbursements By Status</li>
-                <li class="endpoints" id="get-reim-by-id-btn">Reimbursements By ID</li>
+                <li class="endpoints" id="get-reim-by-id-btn">Reimbursements By Author</li>
                 <!--<li class="endpoints" id="get-all-reims-btn">Get All Reimbursements</li> -->
                 <li class="endpoints" id="update-reims-btn">Update Reimbursements</li>
             </ul>
@@ -73,17 +73,17 @@
                             <option class="options" value="4">4 - Other</option>
                         </select><br><br>
                         <li><label class="labels" for="reimbursement-amt">Enter Amount of Reimbursement: &nbsp;</label><br>
-                            <input type="text" class="inputs" id="reimbursement-amt" onfocus="this.value=''"
+                            <input type="text" class="inputs" id="reimbursement-amt" 
                             name="reimbursement-amt"/>
                         </li><br>
                         <li><label class="labels" for="reimbursement-date">Today's Date: &nbsp;</label><br>
                             <input type="date" class="inputs" id="reimbursement-date" name="reimbursement-date"/>
+                      
                         </li><br>
                         <li id="createImTextarea">
                             <label class="labels" for="reimbursement-text">Description</label><br>
                             <textarea class="textareas" name="reimbursement-text" id="reimbursement-text"
-                                placeholder="Enter a description here" onfocus="this.value=''"
-                                maxlength="50"; rows="2" cols="30">
+                                placeholder="Enter a description here" maxlength="50"; rows="2" cols="30">
                             </textarea>
                             <button class="submits" type="button" id="submitNewReimBtn">SUBMIT</button>
                             <button class="submits" type="button" id="newReimBtn">New Reimbursement</button>
@@ -108,44 +108,38 @@
                     <div class="content-area-divs" id="update-user-div">
                         <p class="instruction-ps" >
                             <label class="labels" for="id4update" >Enter the ID of the user you want to update:</label>
-                            <input type="text" class="id-inputs" id="id4update" name="id4update" size="10" >
+                            <input type="text" class="id-inputs" id="id4update" name="id4update" 
+                                size="10" onfocus="this.value=''" >
                             <button class="submits" type="submit" id="get-user-4-update-btn">Get User</button>
                         </p>
                         <hr>
                         <table class="tables">
                             <caption class="captions">Edit the below information as needed:</caption>
-                            <!--<tr>
-                                <td><label class="labels" for="update-user-id-input">User ID:</label></td>
-                                <td class="table-tds">
-                                    <input type="text" class="id-inputs" id="update-user-id-input"
-                                     name="update-user-id-input" value="" size="10" />
-                                </td>
-                            </tr>-->
                             <tr>
                                 <td><label class="labels" for="update-username-input">Username:</label></td>
                                 <td class="table-tds">
-                                    <input type="text" class="id-inputs" id="update-username-input"
-                                        name="update-username-input" value="" size="24" />
+                                    <input type="text" class="id-inputs" id="update-username-input" value=""
+                                        name="update-username-input" size="24" />
                                 </td>
                             </tr>
                             <tr>
                                 <td><label class="labels" for="update-firstname-input">First Name:</label></td>
                                 <td class="table-tds">
                                     <input type="text" class="inputs" id="update-firstname-input"
-                                    name="update-firstname-input" value="" size="24"/> &nbsp;
+                                    name="update-firstname-input" value="" size="24" /> &nbsp;
                                 </td>
                             </tr>
                             <tr>
                                 <td><label class="labels" for="update-lastname-input">Last Name:</label></td>
                                 <td class="table-tds">
                                     <input type="text" class="inputs" id="update-lastname-input"
-                                    name="update-lastname-input" value="" size="24"/> &nbsp;
+                                    name="update-lastname-input" value="" size="24" /> &nbsp;
                                 </td>
                             </tr>
                             <tr>
                                 <td><label class="labels" for="update-email-input">Email:</label></td>
                                 <td class="table-tds">
-                                    <input type="text" class="inputs" id="update-email-input"
+                                    <input type="text" class="inputs" id="update-email-input" 
                                     name="update-email-input" value="" size="24"/> &nbsp;
                                 </td>
                             </tr>
@@ -158,7 +152,9 @@
                             </tr>
                             <tr>
                                 <td id="update-user-btn-td" colspan="2">
-                                    <button class="submits" type="submit" id="submit-update-user-btn">SUBMIT</button>
+                                    <button class="submits" type="button" id="submit-update-user-btn">
+                                        SUBMIT UPDATE USER
+                                    </button>
                                 </td>
                             </tr>
                         </table>                       
@@ -186,7 +182,7 @@
             </div>
             <div class="outer-content" id="outer-content-getReimById">
                 <div class="inner-content" id="inner-content-get-reim-by-type">
-                    <h2 class="content-headers" id="get-reim-by-type">Get Reimbursement By Id</h2>
+                    <h2 class="content-headers" id="get-reim-by-type">Get Reimbursement By Author</h2>
                 </div>
                 <div class="content-divs" id="reim-by-type-div">
                     <label class="labels" for="reim-by-id-input"><p class="responses-from_queries">
@@ -208,7 +204,8 @@
                     <div class="content-area-divs" id="update-reim-div">
                         <p class="instruction-ps" >
                             <label class="labels" for="id4updateReim" >Enter the ID of the Reimbursement you want to update:</label>
-                            <input type="text" class="id-inputs" id="id4updateReim" name="id4updateReim" size="10" >
+                            <input type="text" class="id-inputs" id="id4updateReim" name="id4updateReim" 
+                                size="10" onfocus="this.value=''" >
                             <button class="submits" type="submit" id="get-reim-4-update-btn">Get Reimbursement</button>
                         </p>
                         <hr>
@@ -220,7 +217,7 @@
                                 </td>
                                 <td class="table-tds">
                                     <input type="text" class="inputs" id="update-author-input"
-                                    name="update-author-input" value="" size="24" />
+                                    name="update-author-input" value="" size="24"  />
                                 </td>
                             </tr>
                             <tr>
@@ -286,7 +283,16 @@
                                         name="update-type-input" value="" size="10" />
                                 </td>
                             </tr>
+                            <tr>
+                                <td id="update-reim-btn-td" colspan="2">
+                                    <button class="submits" type="button" id="submit-update-reim-btn">
+                                        SUBMIT UPDATE REIMBURSEMENT
+                                    </button>
+                                </td>
+                            </tr>
                         </table>
+                        <hr>
+                        <p class="confirmation-ps" id="reim-confirmed">Update Submitted Successfully</p>
                     </div>
                 </div>
             </div>
