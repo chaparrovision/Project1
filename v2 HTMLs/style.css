@@ -131,6 +131,7 @@ nav {
 .tables {
     margin:6px 30px;
 }
+
 #update-user-btn-td {
     text-align: center;
 }
@@ -150,12 +151,16 @@ nav {
     width:50%;
     margin-bottom: 14px;
 }
-.user-columns {
-    width:20%;
-    border-right: 1px solid silver;
-    margin-left: 0;
-    padding-left: 0;
+#getAllUsersTable tbody th, #getAllUsersTable td{
+   width: 20%;
+   
 }
+
+/* .user-columns {
+    width:20%;
+    margin-left: -10px;
+    padding-left: 0;
+} */
 .reim-columns {
     width: 8%;
     margin: 0;

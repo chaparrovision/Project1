@@ -39,11 +39,6 @@ userRouter.get('/:userId', async (request: Request, response: Response) => {
 }); 
 
 
-//userRouter.get('/', (request: Request, response: Response) => {
-/*userRouter.get('/', async (request: Request, response: Response) => {
-    response.json({message: `Hello from user Page`});
-    }); */
-
 userRouter.post('',
     (request: Request, response: Response) => {
         const user = new User(request.body);

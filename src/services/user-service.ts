@@ -17,10 +17,10 @@ import db from '../util/pg-connector';
  
 //GETUSER FUNCTION FROM USERROUTER  
 export async function getUsers() {
-    const queryString = `select userid, username, firstname, lastname, email, role from users`;
-    const userResults = await db.query(queryString);  
+    const queryString = `select userid, username, firstname, lastname, email, role from users order by userid`;
+    const userResults = await db.query(queryString);
     //console.log('rows printed' + userResults)
-    // checking if finance manager by searching for role=3
+    // checking if finance manager by searching for role=2
     //return userResults.rows[1];  // this get individual row.  woo hoo!
     return userResults.rows;   //sends result back to user-router request
 }

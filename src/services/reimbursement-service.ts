@@ -25,14 +25,14 @@ export async function createReimbursement(reimbursement: Reimbursement):
 export async function getReimbursementByStatusId(StatusId: number): Promise<Reimbursement[]> {
     const result = await db.query(`SELECT reimbursementid, author, amount, dateSubmitted, 
         dateResolved, description, resolver, status, type
-        FROM reimbursements WHERE status = $1`, [StatusId]);
+        FROM reimbursements WHERE status = $1 ORDER BY dateSubmitted`, [StatusId]);
         console.log(result.rows);
     return  result.rows;
 }
 export async function getReimbursementByAuthor(Author: number): Promise<Reimbursement[]> {
     const result = await db.query(`SELECT reimbursementid, author, amount, dateSubmitted, 
         dateResolved, description, resolver, status, type
-        FROM reimbursements WHERE author = $1`, [Author]);
+        FROM reimbursements WHERE author = $1 ORDER BY dateSubmitted`, [Author]);
         console.log(result.rows);
     return result.rows;
 }

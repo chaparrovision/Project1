@@ -15,6 +15,7 @@ document.getElementById("get-user-4-update-btn").addEventListener("click", getUs
 document.getElementById("get-reim-4-update-btn").addEventListener("click", getReimbursementByIdForUpdate);
 document.getElementById("submit-update-reim-btn").addEventListener("click", submitReimbursementUpdate);
 document.getElementById("submit-update-user-btn").addEventListener("click", submitUserUpdate);
+document.getElementById("newReimBtn").addEventListener("click", clearCreateNewReimb);
 
 
 
@@ -276,6 +277,17 @@ async function createNewReimbursementInfo() {
         document.getElementById('newReimBtn').style.visibility = "visible";
                
 }
+function clearCreateNewReimb() {
+    const empty = " ";
+    document.getElementById('submit-new-reim-response').innerHTML = empty;
+    document.getElementById('reim-type-selection').value = 1;
+    document.getElementById('reimbursement-amt').value = empty;
+    document.getElementById('reimbursement-date').value = empty;
+    document.getElementById('reimbursement-text').value = empty;
+    document.getElementById('newReimBtn').style.visibility = "hidden";
+    document.getElementById('submitNewReimBtn').style.visibility = "visible";
+}
+
 
 //update user code begins here:
 async function getUserByIdForUpdate() {
