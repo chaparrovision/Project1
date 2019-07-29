@@ -45,7 +45,7 @@ export function createUser(user: User): Promise<User[]> {
 
 //export async function getUserById(userId: number): Promise<User> {
 export async function getUserById(userId: number) {
-    const result = await db.query(`SELECT userid, username, firstname, lastname, role FROM users WHERE userid = $1`, [userId]);
+    const result = await db.query(`SELECT userid, username, firstname, lastname, email, role FROM users WHERE userid = $1`, [userId]);
         //console.log('getByUserId', result.rows[userId]);
         if (result.rowCount === 0) {
             return ("Not in the database");
@@ -57,7 +57,7 @@ export async function patchCoalesce(patch: User) {
     firstname = COALESCE($2, firstname), lastname = COALESCE($3, lastname),\
     email = COALESCE($4, email), role = COALESCE($5, role) WHERE userid = $6 \
     RETURNING username, firstname, lastname, email, role, userid;`,
-        [patch.userName, patch.firstName, patch.lastName, patch.email, patch.role, patch.userId]);
+        [patch.userName, patch.firstName, patch.lastName, patch.email, parseInt(patch.role), parseInt(patch.userId)])
         
 
     if (result.rowCount === 0) {
@@ -66,27 +66,5 @@ export async function patchCoalesce(patch: User) {
         const modifiedUser:User = new User(result.rows[0]);
 
         return modifiedUser;
-    }
-}
-
-
-export async function patchUser(patch: User) {
-    if (!patch.userName) {
-        // throw an error
-    }
-
-    const currentState = await getUserById(patch.userId);
-    const newState = {
-        ...currentState, ...patch,
-    };
-
-    const result = await db.query(`UPDATE User SET userId = $1, userName = $2 WHERE userId = $3 
-    RETURNING userId, userName;`,
-        [newState.userId, newState.userName]);
-
-    if (result.rowCount === 0) {
-        // throw error, 404
-    } else {
-        return result.rows[0];
     }
 }

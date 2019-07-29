@@ -1,6 +1,6 @@
 import Role from "./Role"
 export default class User {
-    userId: number; // primary key
+    userId: string; // primary key
     userName: string // not null, unique 
     password: string // not null 
     firstName: string // 

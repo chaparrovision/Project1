@@ -14,6 +14,7 @@ document.getElementById("submitNewReimBtn").addEventListener("click", createNewR
 document.getElementById("get-user-4-update-btn").addEventListener("click", getUserByIdForUpdate);
 document.getElementById("get-reim-4-update-btn").addEventListener("click", getReimbursementByIdForUpdate);
 document.getElementById("submit-update-reim-btn").addEventListener("click", submitReimbursementUpdate);
+document.getElementById("submit-update-user-btn").addEventListener("click", submitUserUpdate);
 
 
 
@@ -139,7 +140,7 @@ async function createTableForAllUsers() {
                 <th class="user-columns" >Username</th>
                 <th class="user-columns" >First Name</th>
                 <th class="user-columns" >Last Name</th>
-                <th class="user-columns" >Last Name</th>
+                <th class="user-columns" >Email</th>
                 <th class="user-columns" >Role</th>
         </row>`;
         // loop thru the response to create rows, then 2 lines down, create the tds.
@@ -279,14 +280,14 @@ async function createNewReimbursementInfo() {
 //update user code begins here:
 async function getUserByIdForUpdate() {
     const userId = document.getElementById('id4update').value; //successfully grabs the user input id number
-    const payload = await fetch('http://localhost:3000/users', {
+    const payload = await fetch(`http://localhost:3000/users/${userId}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'
         }       
       })
       const response = await payload.json();
-    newObject = Object.values(response[userId - 1]);  //successfully grabs called user object from response
+    newObject = Object.values(response);  //successfully grabs called user object from response
     console.log('is this new object?', newObject);
     // the below successfully grabs the user object username
     let oldUsername = newObject[1];
@@ -332,7 +333,7 @@ async function getReimbursementByIdForUpdate() {
 
 }
 
-//
+// Update Reimbursement begins here:
 async function submitReimbursementUpdate() {
     const reimbursementId = document.getElementById('id4updateReim').value; 
     const reimbursementAuthor = document.getElementById('update-author-input').value; 
@@ -371,13 +372,63 @@ async function submitReimbursementUpdate() {
     let oldResolver = newObject[6];
     let oldStatus = newObject[7];
     let oldType = newObject[8];
+    const empty = "";
+    document.getElementById('update-author-input').value = empty;//populates the input box!
+    document.getElementById('update-amount-input').value = empty;
+    document.getElementById('update-resolved-date-input').value = empty;
+    document.getElementById('update-description-input').value = empty;
+    document.getElementById('update-resolver-input').value = empty;
+    document.getElementById('update-status-input').value = empty;
+    document.getElementById('update-type-input').value = empty;
+    alert("Update Submitted Successfully!");
+}
 
-    document.getElementById('update-author-input').value = oldAuthor;//populates the input box!
-    document.getElementById('update-amount-input').value = oldAmount;
-    document.getElementById('update-resolved-date-input').value = oldAmount;
-    document.getElementById('update-description-input').value = oldDescription;
-    document.getElementById('update-resolver-input').value = oldResolver;
-    document.getElementById('update-status-input').value = oldStatus;
-    document.getElementById('update-type-input').value = oldType;
+
+// Update User begins here:
+async function submitUserUpdate() {
+    const userId = document.getElementById('id4update').value; //from getuserbyid input
+    const username = document.getElementById('update-username-input').value; 
+    const firstname = document.getElementById('update-firstname-input').value; 
+    const lastname = document.getElementById('update-lastname-input').value; 
+    const email = document.getElementById('update-email-input').value; 
+    const role = document.getElementById('update-role-input').value;
+    
+    //console.log(reimbursementId, 'is this reimbursementId?') //working so far
+    const payload = await fetch(`http://localhost:3000/users`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body : JSON.stringify({           
+                userId: userId,
+                userName: username,
+                firstName: firstname,
+                lastName: lastname,
+                email: email,
+                role: role,
+            })               
+    })
+    const response = await payload.json();
+    
+    console.log('is this the user payload', response);
+    newObject = Object.values(response); //grabs correct object.
+    
+    let oldUsername = newObject[1];
+    let oldFirstname = newObject[2];
+    let oldLastname = newObject[3];
+    let oldEmail = newObject[4];
+    let oldRole = newObject[5];
+    
+    /*document.getElementById('update-username-input').value = oldUsername;//populates the input box!
+    document.getElementById('update-firstname-input').value = oldFirstname;
+    document.getElementById('update-lastname-input').value = oldLastname;
+    document.getElementById('update-email-input').value = oldEmail;
+    document.getElementById('update-role-input').value = oldRole; */
+    const empty = " ";
+    document.getElementById('update-username-input').value = empty;//populates the input box!
+    document.getElementById('update-firstname-input').value = empty;
+    document.getElementById('update-lastname-input').value = empty;
+    document.getElementById('update-email-input').value = empty;
+    document.getElementById('update-role-input').value = empty;
     alert("Update Submitted Successfully!");
 }
