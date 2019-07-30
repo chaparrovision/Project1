@@ -17,7 +17,7 @@ document.getElementById("submit-update-reim-btn").addEventListener("click", subm
 document.getElementById("submit-update-user-btn").addEventListener("click", submitUserUpdate);
 document.getElementById("newReimBtn").addEventListener("click", clearCreateNewReimb);
 
-
+//submit-update-reim-btn
 
 async function loginChecker() {
     var a = document.getElementById('usernameInput').value;
@@ -39,16 +39,24 @@ async function loginChecker() {
         document.getElementById('ret-first-name').innerText = response.userInfo.firstName;
         document.getElementById('ret-last-name').innerText = response.userInfo.lastName;
         document.getElementById('ret-email').innerText = response.userInfo.email;
-        toMainBody();
+        var global_role = response.userInfo.role;
+        toMainBody(global_role);
     }
 }
 
-function toMainBody() {
+function toMainBody(role) {
     document.getElementById("indexContentDiv").style.display="none";
     document.getElementById("nav-content-container").style.display="flex";
     document.getElementById("navBar").style.display="block";
     document.getElementById("content-area").style.visibility="visible";
-    document.getElementById("outer-content-getEmployeeInfo").style.display="block"   
+    document.getElementById("outer-content-getEmployeeInfo").style.display="block";
+    if (role <=1) {
+        document.getElementById('get-all-users-btn').style.display = "none";
+        document.getElementById('get-update-user-btn').style.display = "none";
+        document.getElementById('get-reim-by-status-btn').style.display = "none";
+        document.getElementById('get-reim-by-id-btn').style.display = "none";
+        document.getElementById('update-reims-btn').style.display = "none";
+    }   
 }
 
 function toGetEmployeeInfo() {
@@ -394,9 +402,12 @@ async function submitReimbursementUpdate() {
     document.getElementById('update-resolver-input').value = empty;
     document.getElementById('update-status-input').value = empty;
     document.getElementById('update-type-input').value = empty;
-    alert("Update Submitted Successfully!");
-    document.getElementById('reim-confirmed').innerText='Update Successful. To update another reimbursement, input a Reimbursement Id at the top of this page.';
-    document.getElementById('reim-confirmed').style.visibility = 'visible';
+    document.getElementById('id4updateReim').value = empty;
+    alert("Update Submitted Successfully!\
+    Select another reimbursement to update at the top of this page.'");
+   //document.getElementById('submit-update-reim-btn').style.visibility = 'hidden';
+    //document.getElementById('reim-confirmed').style.visibility = 'visible';
+    //document.getElementById('reim-confirmed').innerText='Select antop of this page.';
 }
 
 

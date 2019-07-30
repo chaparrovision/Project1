@@ -170,7 +170,7 @@ nav {
     width: 4%;
 }
 #submit-new-reim-response {
-    border: 1px solid silver;
+    
     background: white;
     max-width: 400px;
     visibility: hidden;
@@ -185,4 +185,7 @@ nav {
    color: green;
    margin:20px;
    visibility: hidden; 
+}
+.captions {
+    text-align: left;
 }
