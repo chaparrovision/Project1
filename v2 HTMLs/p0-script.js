@@ -56,6 +56,8 @@ function toMainBody(role) {
         document.getElementById('get-reim-by-status-btn').style.display = "none";
         document.getElementById('get-reim-by-id-btn').style.display = "none";
         document.getElementById('update-reims-btn').style.display = "none";
+    } if (role == 2) {
+        document.getElementById('get-update-user-btn').style.display = "none";
     }   
 }
 
