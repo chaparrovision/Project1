@@ -11,7 +11,7 @@ loginRouter.post('/', async(req: Request, response: Response) => {
     //Here begins the login process in steps
     //1. put user-provided info into variables
     // match username var against db and prepare varname for db.query 
-    let matchUserNameQuery = `select username, password, firstname, lastname, email, role from users 
+    let matchUserNameQuery = `select userid, username, password, firstname, lastname, email, role from users 
                                 where username = $1;`; //the $1; will get passed
                                 // into the db query payload.username argument below,
                                 // protecting us from SQL injection.

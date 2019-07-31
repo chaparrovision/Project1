@@ -8,6 +8,7 @@ document.getElementById("get-reim-by-status-btn").addEventListener("click", toGe
 document.getElementById("choosing-status-btn").addEventListener("click", createTableForReimByStatus);
 document.getElementById("get-reim-by-id-btn").addEventListener("click", toGetReimById);
 document.getElementById("choosing-reim-by-id-btn").addEventListener("click", createTableForReimById);
+document.getElementById("reim-by-user-id-btn").addEventListener("click", createTableForReimByUserId);
 document.getElementById("update-reims-btn").addEventListener("click", toUpdateReims);
 document.getElementById("submitNewReimBtn").addEventListener("click", createNewReimbursementInfo);
 // Below begins the Update User seq., by getting user by id first
@@ -17,7 +18,7 @@ document.getElementById("submit-update-reim-btn").addEventListener("click", subm
 document.getElementById("submit-update-user-btn").addEventListener("click", submitUserUpdate);
 document.getElementById("newReimBtn").addEventListener("click", clearCreateNewReimb);
 
-//submit-update-reim-btn
+//
 
 async function loginChecker() {
     var a = document.getElementById('usernameInput').value;
@@ -35,15 +36,15 @@ async function loginChecker() {
         document.getElementById('wrongLogin').style.display = 'block';
     }  else {
         const response = await payload.json();
-        document.getElementById('ret-user-id').innerText = response.userInfo.userName;
-        document.getElementById('ret-first-name').innerText = response.userInfo.firstName;
-        document.getElementById('ret-last-name').innerText = response.userInfo.lastName;
-        document.getElementById('ret-email').innerText = response.userInfo.email;
+        document.getElementById('reim-by-user-id-input').value = response.userInfo.userId;
+       // document.getElementById('ret-first-name').innerText = response.userInfo.firstName + " " + response.userInfo.lastName;
+        //document.getElementById('ret-last-name').innerText = response.userInfo.lastName;
+       //document.getElementById('ret-email').innerText = response.userInfo.email;
         var global_role = response.userInfo.role;
         toMainBody(global_role);
     }
 }
-
+//ret-user-id
 function toMainBody(role) {
     document.getElementById("indexContentDiv").style.display="none";
     document.getElementById("nav-content-container").style.display="flex";
@@ -249,6 +250,51 @@ async function createTableForReimById() {
         alert("Not found")
     }
 }
+
+
+async function createTableForReimByUserId() {
+    const userId = document.getElementById('reim-by-user-id-input').value;
+    console.log('following is the UserId', userId);// selected value is correct
+    const payload = await fetch(`http://localhost:3000/reimbursement/author/${userId}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }       
+      })
+    
+    try {
+        const response = await payload.json();
+        const reimIdTable = document.getElementById('getReimbursementsByUserIdTable');
+    reimIdTable.innerHTML = `
+        <row id="th-row-of-reim-status">
+                <th class="reim-columns" >ID</th>
+                <th class="reim-columns" >Author</th>
+                <th class="reim-columns" >Amount</th>
+                <th class="reim-columns" >Date Submitted</th>
+                <th class="reim-columns" >Date Resolved</th>
+                <th class="reim-columns" >Description</th>
+                <th class="reim-columns" >Resolver</th>
+                <th class="reim-columns" >Status</th>
+                <th class="reim-columns" >Type</th>
+        </row>`;
+
+    for (var i = 0; i < response.length; i++) {
+        const row = document.createElement('row');
+        for(let c of Object.values(response[i]) ){
+            const td = document.createElement('td');
+            td.innerText = c;
+            td.className = 'reim-columns';
+            row.appendChild(td);
+        }
+        reimIdTable.appendChild(row);
+    }
+    reimIdTable.style.display='block';   
+}
+     catch {
+        alert("Not found")
+    }
+}
+//ret-user-id
 
 async function createNewReimbursementInfo() {
    const reimType = document.getElementById('reim-type-selection').value; //grabbing values input from user
@@ -465,3 +511,4 @@ async function submitUserUpdate() {
     document.getElementById('after-Success-User-Update-info').innerText='Update Successful. To update another user, input a UserId at the top of this page.';
     document.getElementById('after-Success-User-Update-info').style.visibility = 'visible';
 }
+//reim-by-user-id-btn
