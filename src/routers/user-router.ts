@@ -31,7 +31,6 @@ userRouter.get('/:userId', async (request: Request, response: Response) => {
     } else {
         const id = parseInt(request.params.userId); //userId now in const id
         const item: User = await userService.getUserById(id); //calls function from user-service
-        console.log('this is item var', item) //console prints 'item', the correct user
     
     response.status(200).json(item);
     }

@@ -51,6 +51,7 @@ function toMainBody(role) {
     document.getElementById("navBar").style.display="block";
     document.getElementById("content-area").style.visibility="visible";
     document.getElementById("outer-content-getEmployeeInfo").style.display="block";
+    // below is code that hides buttons
     if (role <=1) {
         document.getElementById('get-all-users-btn').style.display = "none";
         document.getElementById('get-update-user-btn').style.display = "none";
