@@ -69,31 +69,33 @@
                 <div class="inner-content" id="inner-content-for-CreateReimb">
                         <h2 class="content-headers" id="createImbursementTitle">Create New Reimbursement</h2>
                     <ul class="innerContentUls" id="CreateReimbursementUl">
-                        Select Reimbursement Type:
+                        <l1><label class="labels" for="reimbursement-author">Enter Your ID:</label>
+                            <input type="text", class="id-inputs" id="reimbursement-author" size="4"/>
+                        <span>&nbsp; &nbsp; </span> Select Reimbursement Type:
                         <select id="reim-type-selection">
                             <option class="options" value="1">1 - Lodging</option>
                             <option class="options" value="2">2 - Travel</option>
                             <option class="options" value="3">3 - Food</option>
                             <option class="options" value="4">4 - Other</option>
-                        </select><br><br>
-                        <li><label class="labels" for="reimbursement-amt">Enter Amount of Reimbursement: &nbsp;</label><br>
+                        </select></l1><br><br>
+                        <li><label class="labels" for="reimbursement-amt">Enter Amount of Reimbursement: &nbsp;</label>
                             <input type="text" class="inputs" id="reimbursement-amt" 
                             name="reimbursement-amt"/>
                         </li><br>
-                        <li><label class="labels" for="reimbursement-date">Today's Date: &nbsp;</label><br>
+                        <li><label class="labels" for="reimbursement-date">Today's Date: &nbsp;</label>
                             <input type="date" class="inputs" id="reimbursement-date" name="reimbursement-date"/>
                       
                         </li><br>
                         <li id="createImTextarea">
                             <label class="labels" for="reimbursement-text">Description</label><br>
                             <textarea class="textareas" name="reimbursement-text" id="reimbursement-text"
-                                placeholder="Enter a description here" maxlength="50"; rows="2" cols="30">
+                                placeholder="Enter a description here" maxlength="50"; rows="1" cols="30">
                             </textarea>
-                            <button class="submits" type="button" id="submitNewReimBtn">SUBMIT</button>
-                            <button class="submits" type="button" id="newReimBtn">New Reimbursement</button>
+                            <button class="submits2" type="button" id="submitNewReimBtn">SUBMIT</button>
+                            <button class="submits2" type="button" id="newReimBtn">New Reimbursement</button>
                         </li>                        
                     </ul>
-                    <hr>
+                    <hr id="createReimHR">
                     <p class="responses-from_queries" id="submit-new-reim-response">&nbsp;</p>
                 </div>
             </div>

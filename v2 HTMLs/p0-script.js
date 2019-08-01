@@ -18,7 +18,7 @@ document.getElementById("submit-update-reim-btn").addEventListener("click", subm
 document.getElementById("submit-update-user-btn").addEventListener("click", submitUserUpdate);
 document.getElementById("newReimBtn").addEventListener("click", clearCreateNewReimb);
 
-//
+//newReimBtn
 
 async function loginChecker() {
     var a = document.getElementById('usernameInput').value;
@@ -299,6 +299,7 @@ async function createTableForReimByUserId() {
 
 async function createNewReimbursementInfo() {
    const reimType = document.getElementById('reim-type-selection').value; //grabbing values input from user
+    const author = parseInt(document.getElementById('reimbursement-author').value) ;
     const amount = parseInt(document.getElementById('reimbursement-amt').value) ;
     const newReimDate = document.getElementById('reimbursement-date').value;
     const description = document.getElementById('reimbursement-text').value;
@@ -309,6 +310,7 @@ async function createNewReimbursementInfo() {
       },
 //Below, assigning new values entered by the user on the web page      
       body: JSON.stringify({
+        author: author,
         amount: amount,
         dateSubmitted : newReimDate,
         description : description,
@@ -328,6 +330,7 @@ async function createNewReimbursementInfo() {
                 list.appendChild(prop);
             }
         }
+        // Below line populates paragraph with list/new reimbursement, displays it, hides others.
         document.getElementById('submit-new-reim-response').innerHTML = list.innerHTML;
         document.getElementById('submit-new-reim-response').style.visibility = "visible";
         document.getElementById('submitNewReimBtn').style.visibility = "hidden"; 
@@ -338,6 +341,7 @@ function clearCreateNewReimb() {
     const empty = " ";
     document.getElementById('submit-new-reim-response').innerHTML = empty;
     document.getElementById('reim-type-selection').value = 1;
+    document.getElementById('reimbursement-author').value = empty;
     document.getElementById('reimbursement-amt').value = empty;
     document.getElementById('reimbursement-date').value = empty;
     document.getElementById('reimbursement-text').value = empty;

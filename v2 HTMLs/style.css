@@ -164,8 +164,7 @@ nav {
 .reim-columns > td {
     width: 4%;
 }
-#submit-new-reim-response {
-    
+#submit-new-reim-response {   
     background: white;
     max-width: 400px;
     visibility: hidden;
@@ -187,3 +186,5 @@ nav {
 #reim-by-user-id-input {
     margin-right: 20px;
 }
+.submits2 {margin:0px 20px;padding:8px 24px;border:1px solid silver;border-radius: 6px;
+    cursor: pointer;vertical-align: middle;}
