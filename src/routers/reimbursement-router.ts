@@ -6,7 +6,7 @@ const reimbursementRouter = express.Router();
 
 reimbursementRouter.post('/', async(req: Request, response: Response) => {
     const payload = req.body; //retrieves json text input from user
-    console.log('payload', payload)
+    //console.log('payload', payload)
     const newReimbursement:Reimbursement = await reimbursementService.createReimbursement(payload);
     response.json(newReimbursement);
 });  
@@ -52,7 +52,7 @@ reimbursementRouter.patch('',
 
         // const patchedInv: Inventory = await inventoryService.patchInventory(patch);
         const patchedInv: Reimbursement = await reimbursementService.patchCoalesce(patch); 
-        console.log('string hello', patchedInv);     
+        //console.log('string hello', patchedInv);     
         if (patchedInv) {
             response.json(patchedInv);
         } else {

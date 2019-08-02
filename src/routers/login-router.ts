@@ -7,7 +7,7 @@ const loginRouter = express.Router();
 
 loginRouter.post('/', async(req: Request, response: Response) => {
     const payload = req.body; //retrieves json text input from user
-    console.log('payload', payload)
+    //console.log('payload', payload)
     //Here begins the login process in steps
     //1. put user-provided info into variables
     // match username var against db and prepare varname for db.query 
@@ -16,9 +16,9 @@ loginRouter.post('/', async(req: Request, response: Response) => {
                                 // into the db query payload.username argument below,
                                 // protecting us from SQL injection.
     // execute varname query
-    console.log('matchUserNameQuery', matchUserNameQuery)
+    //console.log('matchUserNameQuery', matchUserNameQuery)
     const usernamePasswordResults = await db.query(matchUserNameQuery, [payload.username]);
-    console.log(usernamePasswordResults); 
+    //console.log(usernamePasswordResults); 
     // if False, message bad info
     //We have to use .rows[] to get query answers
     if (!usernamePasswordResults.rows[0]) {
@@ -33,13 +33,12 @@ loginRouter.post('/', async(req: Request, response: Response) => {
     req.session.lastname = userInfo.lastName;// info has arrived
     req.session.email = userInfo.email;// info has arrived
     req.session.role = userInfo.role;// info has arrived
-    //req.session.save();
     // true - goto next step
     // put passwords into new vars for ease of reading and comprehension but below if could be:
     // if (usernamePasswordResults.rows[0].password === payload.password) {
     const storedPassword = usernamePasswordResults.rows[0].password; //from the db
     const providedPassword = payload.password; // from input
-   //console.log('provided username and password')
+
     // match passwords, fail if they don't match, else post message "welcome user"
     if (storedPassword === providedPassword) {
         response.status(200).json({userInfo});

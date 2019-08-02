@@ -188,8 +188,8 @@ async function createTableForReimByStatus() {
                 <th class="reim-columns" >ID</th>
                 <th class="reim-columns" >Author</th>
                 <th class="reim-columns" >Amount</th>
-                <th class="reim-columns" >Date Submitted</th>
-                <th class="reim-columns" >Date Resolved</th>
+                <th class="reim-columns" >Date<br>Submitted</th>
+                <th class="reim-columns" >Date<br>Resolved</th>
                 <th class="reim-columns" >Description</th>
                 <th class="reim-columns" >Resolver</th>
                 <th class="reim-columns" >Status</th>
@@ -208,7 +208,7 @@ async function createTableForReimByStatus() {
     }
     reimStatusTable.style.display='block';   
 }
-
+//
 async function createTableForReimById() {
     const userId = document.getElementById('reim-by-id-input');
     console.log('following is the UserId', userId.value);// selected value is correct
@@ -227,8 +227,8 @@ async function createTableForReimById() {
                 <th class="reim-columns" >ID</th>
                 <th class="reim-columns" >Author</th>
                 <th class="reim-columns" >Amount</th>
-                <th class="reim-columns" >Date Submitted</th>
-                <th class="reim-columns" >Date Resolved</th>
+                <th class="reim-columns" >Date<br>Submitted</th>
+                <th class="reim-columns" >Date<br>Resolved</th>
                 <th class="reim-columns" >Description</th>
                 <th class="reim-columns" >Resolver</th>
                 <th class="reim-columns" >Status</th>
@@ -352,6 +352,17 @@ function clearCreateNewReimb() {
 
 //update user code begins here:
 async function getUserByIdForUpdate() {
+    const newNum = document.getElementById("id4update").value;
+        if(newNum > 6 | newNum < 1 | newNum == NaN) {
+            alert("Not in the System.  Try again.");
+            document.getElementById('update-username-input').value = "";//populates the input box!
+    document.getElementById('update-firstname-input').value = "";
+    document.getElementById('update-lastname-input').value = "";
+    document.getElementById('update-email-input').value = "";
+    document.getElementById('update-role-input').value = "";
+    //document.getElementById('after-Success-User-Update-info').innerText = ' ';
+            
+        } else {
     const userId = document.getElementById('id4update').value; //successfully grabs the user input id number
     const payload = await fetch(`http://localhost:3000/users/${userId}`, {
         method: 'GET',
@@ -375,9 +386,9 @@ async function getUserByIdForUpdate() {
     document.getElementById('update-email-input').value = oldEmail;
     document.getElementById('update-role-input').value = oldRole;
     document.getElementById('after-Success-User-Update-info').innerText = ' ';
-
 }
-
+}
+//
 // Below begins the get Reimbursement by ID for Update Reimbursement
 async function getReimbursementByIdForUpdate() {
     const reimbursementId = document.getElementById('id4updateReim').value; //successfully grabs the user input id number
@@ -418,7 +429,7 @@ async function submitReimbursementUpdate() {
     const reimbursementResolver = document.getElementById('update-resolver-input').value; 
     const reimbursementStatus = document.getElementById('update-status-input').value; 
     const reimbursementType = document.getElementById('update-type-input').value;
-    
+    //id4update
     //console.log(reimbursementId, 'is this reimbursementId?') //working so far
     const payload = await fetch(`http://localhost:3000/reimbursement`, {
         method: 'PATCH',
