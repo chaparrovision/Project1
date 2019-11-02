@@ -1,8 +1,8 @@
-import express, {Request, Response,} from 'express';
+import express, {Request, Response} from 'express';
 import User from '../models/User';
 import * as userService from '../services/user-service';
 import db from '../util/pg-connector';
-import { json } from 'body-parser';
+// import { json } from 'body-parser';
 
 const userRouter = express.Router();
 
@@ -19,24 +19,26 @@ userRouter.get('/', async (request: Request, response: Response) => {
         response.sendStatus(403);
     } else {
         const returnedValue = await userService.getUsers();
-        console.log(request.session);      
-        //console.log("Hi there!"); //trying to isolate the role value
-        response.json(returnedValue);    
-    }   
+        // tslint:disable-next-line: no-console
+        console.log(request.session);
+        // console.log("Hi there!"); //trying to isolate the role value
+        response.json(returnedValue);
+    }
 });
-   
+
 userRouter.get('/:userId', async (request: Request, response: Response) => {
     if (request.session.role <= 1) {
         response.sendStatus(401);
     } else {
-        const id = parseInt(request.params.userId); //userId now in const id
-        const item: User = await userService.getUserById(id); //calls function from user-service
-    
+        // tslint:disable-next-line: radix
+        const id = parseInt(request.params.userId); // userId now in const id
+        const item: User = await userService.getUserById(id); // calls function from user-service
+
+    // tslint:disable-next-line: align
     response.status(200).json(item);
     }
-            
-}); 
 
+});
 
 userRouter.post('',
     (request: Request, response: Response) => {
@@ -54,7 +56,6 @@ userRouter.post('',
             });
     });
 
-
 userRouter.patch('',
     async (request: Request, response: Response) => {
         if (request.session.role <= 1) {
@@ -62,16 +63,16 @@ userRouter.patch('',
         } else {
 
             const patch: User = request.body;
-        
+
             // const patchedInv: Inventory = await inventoryService.patchInventory(patch);
             const patchedInv: User = await userService.patchCoalesce(patch);
-        
+
             if (patchedInv.userId) {
                 response.json(patchedInv);
             } else {
                 response.sendStatus(400);
             }
-        response.sendStatus(200);
+
         }
     });
 /*

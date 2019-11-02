@@ -178,6 +178,10 @@ nav {
 .confirmation-ps {
    color: green;
    margin:20px;
+   border: 1px solid black;
+   width:60%;
+   padding:6px;
+   background:white;
    visibility: hidden; 
 }
 .captions {

@@ -33,7 +33,7 @@ async function loginChecker() {
     })
     console.log(await payload.status);
     if (await payload.status === 400) {
-        document.getElementById('wrongLogin').style.display = 'block';
+        document.getElementById('wrongLogin').style.visibility = 'visible'  ;
     }  else {
         const response = await payload.json();
         document.getElementById('reim-by-user-id-input').value = response.userInfo.userId;
@@ -356,12 +356,11 @@ async function getUserByIdForUpdate() {
         if(newNum > 6 | newNum < 1 | newNum == NaN) {
             alert("Not in the System.  Try again.");
             document.getElementById('update-username-input').value = "";//populates the input box!
-    document.getElementById('update-firstname-input').value = "";
-    document.getElementById('update-lastname-input').value = "";
-    document.getElementById('update-email-input').value = "";
-    document.getElementById('update-role-input').value = "";
-    //document.getElementById('after-Success-User-Update-info').innerText = ' ';
-            
+            document.getElementById('update-firstname-input').value = "";
+            document.getElementById('update-lastname-input').value = "";
+            document.getElementById('update-email-input').value = "";
+            document.getElementById('update-role-input').value = "";
+            //document.getElementById('after-Success-User-Update-info').innerText = ' ';
         } else {
     const userId = document.getElementById('id4update').value; //successfully grabs the user input id number
     const payload = await fetch(`http://localhost:3000/users/${userId}`, {
@@ -370,7 +369,7 @@ async function getUserByIdForUpdate() {
           'Content-Type': 'application/json'
         }       
       })
-      const response = await payload.json();
+    const response = await payload.json();
     newObject = Object.values(response);  //successfully grabs called user object from response
     console.log('is this new object?', newObject);
     // the below successfully grabs the user object username
@@ -386,7 +385,8 @@ async function getUserByIdForUpdate() {
     document.getElementById('update-email-input').value = oldEmail;
     document.getElementById('update-role-input').value = oldRole;
     document.getElementById('after-Success-User-Update-info').innerText = ' ';
-}
+    document.getElementById('after-Success-User-Update-info').style.visibility="hidden";
+ }
 }
 //
 // Below begins the get Reimbursement by ID for Update Reimbursement
@@ -417,6 +417,8 @@ async function getReimbursementByIdForUpdate() {
     document.getElementById('update-status-input').value = oldStatus;
     document.getElementById('update-type-input').value = oldType;
     document.getElementById('reim-confirmed').innerText = ' ';
+    document.getElementById('reim-confirmed').style.visibility = 'hidden';
+    document.getElementById('submit-update-reim-btn').style.visibility = 'visible';
 }
 
 // Update Reimbursement begins here:
@@ -467,11 +469,11 @@ async function submitReimbursementUpdate() {
     document.getElementById('update-status-input').value = empty;
     document.getElementById('update-type-input').value = empty;
     document.getElementById('id4updateReim').value = empty;
-    alert("Update Submitted Successfully!\
-    Select another reimbursement to update at the top of this page.'");
-   //document.getElementById('submit-update-reim-btn').style.visibility = 'hidden';
-    //document.getElementById('reim-confirmed').style.visibility = 'visible';
-    //document.getElementById('reim-confirmed').innerText='Select antop of this page.';
+    /*alert("Update Submitted Successfully!\
+    Select another reimbursement to update at the top of this page.'"); */
+    document.getElementById('submit-update-reim-btn').style.visibility = 'hidden';
+    document.getElementById('reim-confirmed').style.visibility = 'visible';
+    document.getElementById('reim-confirmed').innerText='Update Submitted Successfully! Select another reimbursement to update at the top of this page.';
 }
 
 
@@ -511,19 +513,13 @@ async function submitUserUpdate() {
     let oldEmail = newObject[4];
     let oldRole = newObject[5];
     
-    /*document.getElementById('update-username-input').value = oldUsername;//populates the input box!
-    document.getElementById('update-firstname-input').value = oldFirstname;
-    document.getElementById('update-lastname-input').value = oldLastname;
-    document.getElementById('update-email-input').value = oldEmail;
-    document.getElementById('update-role-input').value = oldRole; */
-    
     document.getElementById('update-username-input').value = empty;//populates the input box!
     document.getElementById('update-firstname-input').value = empty;
     document.getElementById('update-lastname-input').value = empty;
     document.getElementById('update-email-input').value = empty;
     document.getElementById('update-role-input').value = empty;
     document.getElementById('id4update').value = empty;
-    alert("Update Submitted Successfully!");
+    //alert("Update Submitted Successfully!");  commented out on 09/29/2019
     document.getElementById('after-Success-User-Update-info').innerText='Update Successful. To update another user, input a UserId at the top of this page.';
     document.getElementById('after-Success-User-Update-info').style.visibility = 'visible';
 }

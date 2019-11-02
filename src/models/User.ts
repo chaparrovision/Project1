@@ -1,13 +1,14 @@
-import Role from "./Role"
+// tslint:disable-next-line: quotemark
+import Role from "./Role";
 export default class User {
-    userId: string; // primary key
-    userName: string // not null, unique 
-    password: string // not null 
-    firstName: string // 
-    lastName: string // not null 
-    email: string // not null 
-    role: string // not null 
-    
+    public userId: string; // primary key
+    public userName: string ; // not null, unique
+    public password: string; // not null
+    public firstName: string; //
+    public lastName: string; // not null
+    public email: string; // not null
+    public role: string; // not null
+
     constructor(obj) {
         if (!obj) {
             return;
@@ -22,18 +23,17 @@ export default class User {
     }
 }
 
-
 /*
 export default class User {
     userId: number;// primary key
-    userName: string; // not null, unique 
+    userName: string; // not null, unique
     password: string; // not null
     firstName: string; // not null
     lastName: string; //not null
     email: string; //not null
     role: Role //not null
 
-    constructor(userId: number, username: string, password: string, firstName: string, 
+    constructor(userId: number, username: string, password: string, firstName: string,
          lastName:string, email: string, role: Role) {
     this.userId = userId; // primary key
     this.userName = username;  // not null, unique

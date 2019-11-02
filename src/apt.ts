@@ -1,25 +1,29 @@
-import express, {Request, Response} from 'express'; //will locate express node-modules folder
+import express, {Request, Response} from 'express'; // will locate express node-modules folder
+// tslint:disable-next-line: ordered-imports
 import bodyParser from 'body-parser'; // checks for mimetype json, converts to JS.
 import session from 'express-session';
-//import userIdRouter from './routers/userId-router';
+// import userIdRouter from './routers/userId-router';
 import loginRouter from './routers/login-router';
 import reimbursementRouter from './routers/reimbursement-router';
 import { closePool } from './util/pg-connector';
+// tslint:disable-next-line: ordered-imports
 import userRouter from './routers/user-router';
+// tslint:disable-next-line: ordered-imports
 import roleRouter from './routers/role-router';
 
+// tslint:disable-next-line: no-var-requires
 const cors = require('cors');
 // creating instance of express App by calling express method
-const app = express(); //sets up express
-//const port = 3000; 
+const app = express(); // sets up express
+// const port = 3000;
 // Process
 const port = process.env.port || 3000;
 // Close the pool when app shuts down
 /*process.on('SIGINT', async () => {
-    await closePool(); 
+    await closePool();
 });  */
 /*Middleware
-When requests are received by Express they pass thru layers of middleware.  
+When requests are received by Express they pass thru layers of middleware.
 Essentially, express has an array of middleware functions.
 When a request is received  it creates the 'request' and 'response' objects,
 then calls the first middleware function with the following parameters;
@@ -31,8 +35,8 @@ next is the next middleware function
 app.use(cors());
 app.use(bodyParser.json());
 
-//registering middleware
-//app.use(/* middleware function */)
+// registering middleware
+// app.use(/* middleware function */)
 // If we want typing: npm install --only-dev @types/express
 
 // session-express code below
@@ -40,29 +44,32 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
     secret: 'my-secret',
-    cookie: {secure:false}
+    // tslint:disable-next-line: object-literal-sort-keys
+    cookie: { secure: false },
 }));
 
 app.use( (request: Request, response: Response, next) => {
+    // tslint:disable-next-line: no-console
     console.log('Request received for ' + request.url);
     next();
  });
 
  // another middleware
+ // tslint:disable-next-line: align
  app.use( (request: Request, response: Response, next) => {
-    //response.json({message: 'Hello from middleware 2'});
+
     next();
- }); 
+ });
 
  /* Routers - we will register routers with the routes: 'user', login and 'reimbursement'
  We need to remember to register the routes here */
-//app.use('/userIds', userIdRouter); //specifies the name called on Postman, like localhost:3000/userIds
-app.use('/users', userRouter); //specifies the name called on Postman, like localhost:3000/userIds
+// app.use('/userIds', userIdRouter); //specifies the name called on Postman, like localhost:3000/userIds
+app.use('/users', userRouter); // specifies the name called on Postman, like localhost:3000/userIds
 app.use('/login', loginRouter);
-app.use('/reimbursement', reimbursementRouter) 
+app.use('/reimbursement', reimbursementRouter);
 
-
-//Below starts server on port 3000 -port is an access point on the server
+// Below starts server on port 3000 -port is an access point on the server
 app.listen(3000, () => {
+    // tslint:disable-next-line: no-console
     console.log(`App started on port ${port}`);
 });
